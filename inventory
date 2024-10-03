@@ -1,0 +1,9 @@
+[balancers]
+node1 ansible_host=192.168.68.91
+
+[webservers]
+node2 ansible_host=192.168.68.92
+node3 ansible_host=192.168.68.93
+
+
+
