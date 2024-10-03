@@ -1,0 +1,12 @@
+---
+- name: setup ssh and hosts
+  import_tasks: initial-setup.yaml
+
+- name: configure control as repo server
+  import_tasks: setupreposerver.yaml
+
+- name: setup repos on clients
+  import_tasks: setuprepoclient.yaml
+
+- name: create ansible user with privileges on nodes
+  import_tasks: setupnodes.yaml

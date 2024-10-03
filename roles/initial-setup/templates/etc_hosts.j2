@@ -1,0 +1,9 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.68.90   control.streetrack.org   control
+{% for host in groups['all'] %}
+{{ hostvars[host]['ansible_default_ipv4']['address'] }}   {{ hostvars[host]['ansible_fqdn'] }}   {{ hostvars[host]['ansible_hostname'] }}
+{% endfor %}
+
+
