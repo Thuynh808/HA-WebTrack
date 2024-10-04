@@ -1,0 +1,46 @@
+---
+- name: install httpd
+  yum:
+    name: httpd
+    state: present
+- name: create web content directory
+  file:
+    path: /web
+    state: directory
+    owner: apache
+    group: apache
+- name: edit DocumentRoot
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regex: '^DocumentRoot'
+    line: DocumentRoot "/web"
+- name: edit Directory
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regex: '^<Directory "'
+    line: '<Directory "/web">'
+- name: set sefcontext for /web
+  sefcontext:
+    target: '/web(/.*)?'
+    setype: httpd_sys_content_t
+    state: present
+- name: restorecon
+  shell: 'restorecon -Rv /web'
+- name: generate webcontent
+  template:
+    src: webcontent.j2
+    dest: /web/index.html
+- name: enable http in firewalld
+  firewalld:
+    service: http
+    state: enabled
+    permanent: true
+    immediate: true
+- name: restart services
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  loop:
+    - httpd
+    - firewalld

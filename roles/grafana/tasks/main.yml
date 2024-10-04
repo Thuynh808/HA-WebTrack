@@ -1,0 +1,7 @@
+---
+- name: grafana repo
+  import_tasks: grafanarepo.yaml
+
+- name: install grafana
+  import_tasks: grafanainstall.yaml
+

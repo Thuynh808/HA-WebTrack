@@ -1,0 +1,15 @@
+{% raw %}
+route:
+  group_by: ['alertname']
+  repeat_interval: 1h
+  receiver: 'slack'
+
+receivers:
+  - name: 'slack'
+    slack_configs:
+      - send_resolved: true
+        api_url: "https://hooks.slack.com/services/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"
+        channel: '#alerts'
+        username: 'Alertmanager'
+        icon_emoji: ':alert:'
+{% endraw %}

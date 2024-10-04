@@ -1,0 +1,36 @@
+---
+- name: install loki
+  yum:
+    name: loki.x86_64
+    state: present
+- name: create loki directory
+  file:
+    path: /data/loki
+    state: directory
+    owner: loki
+    group: loki
+- name: template config file
+  template:
+    src: loki_config.j2
+    dest: /etc/loki/config.yml
+- name: open port 3100 in firewalld
+  firewalld:
+    port: 3100/tcp
+    permanent: true
+    immediate: true
+    state: enabled
+- name: restart firewalld
+  service:
+    name: firewalld
+    state: restarted
+- name: add port 3100 to selinux port
+  seport:
+    ports: 3100
+    proto: tcp
+    setype: http_port_t
+    state: present
+- name: restart loki
+  service:
+    name: loki
+    state: restarted
+

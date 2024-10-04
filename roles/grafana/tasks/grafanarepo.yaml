@@ -1,0 +1,16 @@
+- name: import GPG key
+  rpm_key:
+    state: present
+    key: https://rpm.grafana.com/gpg.key
+- name: create grafana repo
+  yum_repository:
+    name: grafana
+    description: grafana
+    baseurl: https://rpm.grafana.com
+    repo_gpgcheck: yes
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://rpm.grafana.com/gpg.key
+    sslverify: 1
+    sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+    state: present

@@ -1,0 +1,37 @@
+---
+- name: create /data directory
+  file:
+    path: /data
+    state: directory
+- name: check second disk
+  shell: 'lsblk -dnlo NAME -e 11'
+  register: devices
+- name: fail if no second disk
+  fail:
+    msg: no second disk
+  when: devices.stdout_lines[1] is not defined
+- name: create partition
+  parted:
+    device: /dev/{{ devices.stdout_lines[1] }}
+    number: 1
+    state: present
+- name: create volume group
+  lvg:
+    vg: myvg
+    pvs: /dev/{{ devices.stdout_lines[1] }}1
+- name: create lvol
+  lvol:
+    vg: myvg
+    lv: mylv
+    size: 79g
+- name: create filesystem
+  filesystem:
+    fstype: ext4
+    dev: /dev/myvg/mylv
+- name: mount /dev/myvg/mylv
+  mount:
+    path: /data
+    src: /dev/myvg/mylv
+    fstype: ext4
+    state: mounted
+

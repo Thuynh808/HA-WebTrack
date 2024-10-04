@@ -1,0 +1,88 @@
+---
+- name: download and unarchive prometheus
+  unarchive:
+    src: 'https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz'
+    dest: /home/ansible/ha_webtrack/
+    remote_src: true
+- name: create prometheus group
+  group:
+    name: prometheus
+    state: present
+- name: create prometheus user
+  user:
+    name: prometheus
+    shell: /usr/bin/false
+    group: prometheus
+    create_home: false
+    system: true
+- name: copy executables
+  copy:
+    src: "{{ item }}"
+    dest: /usr/local/bin
+    owner: prometheus
+    group: prometheus
+    mode: '0755'
+  loop:
+    - prometheus-2.54.1.linux-amd64/prometheus
+    - prometheus-2.54.1.linux-amd64/promtool
+- name: create prometheus directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: prometheus
+    group: prometheus
+  loop:
+    - /etc/prometheus
+    - /var/lib/prometheus
+- name: copy to /etc
+  copy:
+    src: "{{ item }}"
+    dest: /etc/prometheus/
+    owner: prometheus
+    group: prometheus
+  loop:
+    - prometheus-2.54.1.linux-amd64/consoles
+    - prometheus-2.54.1.linux-amd64/console_libraries
+    - prometheus-2.54.1.linux-amd64/prometheus.yml
+- name: run service template
+  template:
+    src: prometheus_service.j2
+    dest: /etc/systemd/system/prometheus.service
+    owner: root
+    group: root
+    mode: '0644'
+- name: add targets in prometheus.yml 
+  blockinfile:
+    path: /etc/prometheus/prometheus.yml
+    block: |
+      # block indent
+        - job_name: 'node_exporter'
+          static_configs:
+            - targets: ['192.168.68.91:9100', '192.168.68.92:9100', '192.168.68.93:9100']
+        - job_name: 'haproxy_metrics'
+          static_configs:
+            - targets: ['192.168.68.91:8405']
+    insertafter: EOF
+- name: selinux port open
+  seport:
+    ports: 9090
+    proto: tcp
+    setype: http_port_t
+    state: present
+- name: open port 9090 in firewalld
+  firewalld:
+    port: 9090/tcp
+    permanent: true
+    state: enabled
+- name: restart firewalld
+  service:
+    name: firewalld
+    state: restarted
+- name: reload systemd
+  shell: 'systemctl daemon-reload'
+- name: start and enable prometheus
+  service:
+    name: prometheus
+    state: restarted
+    enabled: true
+

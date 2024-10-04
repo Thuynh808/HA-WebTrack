@@ -1,0 +1,25 @@
+- name: install grafana
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - grafana-enterprise.x86_64
+    - chkconfig
+- name: start and enable grafana
+  service:
+    name: grafana-server
+    state: started
+    enabled: true
+- name: reload systemd manager
+  shell: 'systemctl daemon-reload'
+- name: open port 3000
+  firewalld:
+    port: 3000/tcp
+    permanent: true
+    state: enabled
+    immediate: true
+- name: restart firewalld
+  service:
+    name: firewalld
+    state: restarted
+

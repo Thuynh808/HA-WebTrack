@@ -1,0 +1,40 @@
+---
+- name: install and configure webserver
+  hosts: webservers
+  roles:
+    - webserver
+
+- name: install and configure haproxy loadbalancer
+  hosts: balancers
+  roles:
+    - loadbalancer
+
+- name: install and configure grafana
+  hosts: localhost
+  roles:
+    - grafana
+
+- name: install and configure node_exporter
+  hosts: balancers webservers
+  roles:
+    - node_exporter
+
+- name: install and configure prometheus
+  hosts: localhost
+  roles:
+    - prometheus
+
+- name: install and configure promtail
+  hosts: all
+  roles:
+    - promtail
+
+- name: install and configure loki
+  hosts: localhost
+  roles:
+    - loki
+
+- name: install and configure alertmanager
+  hosts: localhost
+  roles:
+    - alertmanager

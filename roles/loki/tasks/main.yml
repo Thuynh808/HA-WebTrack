@@ -1,0 +1,6 @@
+---
+- name:  setup lvm filesystem for logs
+  import_tasks: loki_data.yaml
+
+- name: install and configure loki
+  import_tasks: loki.yaml

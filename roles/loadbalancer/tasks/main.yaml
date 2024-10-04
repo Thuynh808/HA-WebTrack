@@ -1,0 +1,51 @@
+---
+- name: install haproxy
+  yum:
+    name: haproxy
+    state: present
+- name: configure haproxy for selinux and http
+  copy:
+    content: |
+      <?xml version="1.0" encoding="utf-8"?>
+      <service>
+      <short>HAProxy-HTTP</short>
+      <description>HAProxy load-balancer</description>
+      <port protocol="tcp" port="80"/>
+      </service>
+    dest: /etc/firewalld/services/haproxy-http.xml
+- name: assign selinux context 
+  shell: 'restorecon /etc/firewalld/services/haproxy-http.xml'
+- name: set file permissions for haproxy-http.xml
+  shell: 'chmod 640 /etc/firewalld/services/haproxy-http.xml'
+- name: copy haproxy.cfg to node
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+- name: enable http service in firewalld
+  firewalld:
+    service: http
+    state: enabled
+    permanent: true
+    immediate: true
+- name: open 8405
+  firewalld:
+    port: 8405/tcp
+    state: enabled
+    permanent: true
+    immediate: true
+- name: seport 8405
+  seport:
+    ports: 8405
+    proto: tcp
+    setype: http_port_t
+    state: present
+- name: restart and enable services
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  loop:
+    - haproxy
+    - firewalld
+
+

@@ -1,0 +1,9 @@
+---
+
+jinja:
+- source: alertmanager_config.j2
+  destination: /etc/alertmanager/alertmanager.yml
+- source: alertmanager_prometheus_config.j2
+  destination: /etc/prometheus/prometheus.yml
+- source: alert_rules.j2
+  destination: /etc/prometheus/rules.yml

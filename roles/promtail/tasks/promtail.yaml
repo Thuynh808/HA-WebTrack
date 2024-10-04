@@ -1,0 +1,78 @@
+---
+- name: install
+  yum:
+    name: promtail
+    state: present
+- name: template run for balancers
+  vars:
+    jinja:
+    - source: promtail_config.j2
+      destination: /etc/promtail/config.yml
+    - source: promtail_rsyslog.j2
+      destination: /etc/rsyslog.conf
+  template:
+    src: "{{ item.source }}"
+    dest: "{{ item.destination }}"
+  loop: "{{ jinja }}"
+  when: inventory_hostname in groups['balancers']
+- name: create haproxy.conf
+  copy:
+    content: "local2.*    /var/log/haproxy.log\n"
+    dest: /etc/rsyslog.d/haproxy.conf
+  when: inventory_hostname in groups['balancers']
+- name: create haproxy.log file
+  file:
+    path: /var/log/haproxy.log
+    state: touch
+- name: template run for webseservers
+  template:
+    src: promtail_config_web.j2
+    dest: /etc/promtail/config.yml
+  when: inventory_hostname in groups['webservers']
+- name: edit group owner and permissions for log files on balancers
+  file:
+    path: "{{ item }}"
+    group: promtail
+    mode: '0640'
+  loop:
+    - /var/log/messages
+    - /var/log/secure
+    - /var/log/haproxy.log
+  when: inventory_hostname in groups['balancers']
+- name: edit group owner and permissions for log files on webservers
+  file:
+    path: "{{ item }}"
+    group: promtail
+    mode: '0640'
+  loop:
+    - /var/log/messages
+    - /var/log/secure
+  when: inventory_hostname in groups['webservers']
+- name: edit group owner and permissions for httpd log files on webservers
+  file:
+    path: /var/log/httpd
+    group: promtail
+    mode: '0750'
+    recurse: true
+  when: inventory_hostname in groups['webservers']
+- name: edit group owner for /etc/httpd/logs on webservers
+  file:
+    path: /etc/httpd/logs
+    group: promtail
+  when: inventory_hostname in groups['webservers']
+- name: open port 9080 for promtail in firewalld
+  firewalld:
+    port: 9080/tcp
+    permanent: true
+    state: enabled
+    immediate: true
+- name: restart services
+  service:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - rsyslog
+    - promtail
+    - firewalld
+
+

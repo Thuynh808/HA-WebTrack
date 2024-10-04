@@ -1,0 +1,7 @@
+---
+- name: add grafana repo
+  import_tasks: grafanarepo.yaml
+
+- name: install promtail
+  import_taks: promtail.yaml
+
