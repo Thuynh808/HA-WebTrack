@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ansible-playbook setupcontrol.yaml -v
-ansible-playbook setupreposerver.yaml -v
-ansible-playbook setuprepoclient.yaml -v
-ansible-playbook setupnodes.yaml -v
-ansible-playbook timesync.yaml -v
+ansible-playbook playbooks/setupcontrol.yaml -v
+ansible-playbook playbooks/setupreposerver.yaml -v
+ansible-playbook playbooks/setuprepoclient.yaml -v
+ansible-playbook playbooks/setupnodes.yaml -v
+ansible-playbook playbooks/timesync.yaml -v
 
