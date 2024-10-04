@@ -21,7 +21,7 @@
   tasks:
   - name: toggle off ask_pass
     lineinfile:
-      path: ./ansible.cfg
+      path: ../ansible.cfg
       regex: '^ask_pass'
       line: ask_pass=false
   - name: copy hosts file to localhost:/etc/hosts
