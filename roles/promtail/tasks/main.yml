@@ -3,5 +3,5 @@
   import_tasks: grafanarepo.yaml
 
 - name: install promtail
-  import_taks: promtail.yaml
+  import_tasks: promtail.yaml
 
