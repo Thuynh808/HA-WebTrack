@@ -2,7 +2,7 @@
 - name: download and unarchive prometheus
   unarchive:
     src: 'https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz'
-    dest: /home/ansible/ha_webtrack/
+    dest: /home/ansible/HA-WebTrack/
     remote_src: true
 - name: create prometheus group
   group:
