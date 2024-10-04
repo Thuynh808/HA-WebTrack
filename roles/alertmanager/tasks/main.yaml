@@ -2,7 +2,7 @@
 - name: download and unarchive alertmanager
   unarchive:
     src: 'https://github.com/prometheus/alertmanager/releases/download/v0.27.0/alertmanager-0.27.0.linux-amd64.tar.gz'
-    dest: /home/ansible/ha_webtrack/
+    dest: /home/ansible/HA-WebTrack/
     remote_src: true
 - name: copy executables
   copy:
