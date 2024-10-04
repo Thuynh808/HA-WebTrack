@@ -1,0 +1,6 @@
+---
+- name: install and configure webserver
+  hosts: webservers
+  roles:
+    - webserver
+

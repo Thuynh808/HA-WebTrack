@@ -1,0 +1,7 @@
+---
+
+- name: install and configure prometheus
+  hosts: localhost
+  roles:
+    - prometheus
+

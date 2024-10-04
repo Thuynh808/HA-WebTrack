@@ -1,0 +1,7 @@
+---
+
+- name: install and configure haproxy loadbalancer
+  hosts: balancers
+  roles:
+    - loadbalancer
+
