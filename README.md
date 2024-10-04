@@ -7,7 +7,7 @@ The HA-WEBTRACK project is designed to create a high-availability web server env
 
 ### Prerequisites
 Before you begin, ensure you have the following prepared:
-- **Git** and **Ansible** installed on your control machine.
+- **Git** is installed on your control machine.
 - **Four RHEL 9 VMs**: These will act as your control node, load balancer, and two web servers.
 - **Network Configuration**: Set IP addresses and hostnames for each VM using `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices, which is essential for proper operation of services like HAProxy and the web servers.
 
