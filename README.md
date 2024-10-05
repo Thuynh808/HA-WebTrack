@@ -149,7 +149,9 @@ When encountering issues during the Ansible playbook execution, check the Ansibl
 Ensure all prerequisites are correctly installed and configured before starting the installation.
 For issues related to specific components, refer to the component's documentation or the troubleshooting section of this guide.
 
+
 ---
+<br><br>
 
 ## Project Highlights
 
