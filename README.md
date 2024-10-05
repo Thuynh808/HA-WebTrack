@@ -70,11 +70,16 @@ To install and set up the project, follow these steps:
    ```bash
    ansible-galaxy collection install -r requirements.yaml
    ```
-4. **Mount the rhel iso:**
+4. **confirm Mount the rhel iso:**
 
    ```bash
    sudo mount /dev/sr0 /mnt
    ```
+6. configure inventory ansible_host
+   ```bash
+   vim inventory
+   ```
+   change ipaddresses for all 4 servers
 5. **Run the initial setup script:**
    
    ```bash
