@@ -6,7 +6,7 @@ positions:
   filename: /tmp/positions.yaml  # Keeps track of where Promtail left off in each log
 
 clients:
-  - url: http://192.168.68.90:3100/loki/api/v1/push  # Change this if your Loki server is remote
+  - url: http://{{ hostvars['localhost']['ansible_host'] }}:3100/loki/api/v1/push  # Change this if your Loki server is remote
 
 scrape_configs:
   - job_name: system_logs

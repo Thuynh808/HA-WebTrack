@@ -1,6 +1,6 @@
 ---
 - name: create ansible user with privileges
-  hosts: all
+  hosts: balancers webservers
   tasks:
   - name: confirm python installed
     yum:

@@ -7,7 +7,7 @@ server:
   grpc_server_max_concurrent_streams: 1000
 
 common:
-  instance_addr: 192.168.68.90
+  instance_addr: {{ hostvars['localhost']['ansible_host'] }}
   path_prefix: /data/loki
   storage:
     filesystem:

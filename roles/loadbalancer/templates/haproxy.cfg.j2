@@ -66,9 +66,9 @@ defaults
 #---------------------------------------------------------------------
 # main frontend which proxys to the backends
 #---------------------------------------------------------------------
-
+{% endraw %}
 frontend load_balancer
-    bind 192.168.68.91:80
+    bind {{ hostvars['node1']['ansible_host'] }}:80
     option http-server-close
     option forwardfor
 
@@ -78,8 +78,8 @@ default_backend   webservers
 
 backend webservers
     balance     roundrobin
-    server  node2 192.168.68.92:80 check
-    server  node3 192.168.68.93:80 check
+    server  node2 {{ hostvars['node2']['ansible_host'] }}:80 check
+    server  node3 {{ hostvars['node3']['ansible_host'] }}:80 check
 
 #---------------------------------------------------------------------
 
@@ -88,4 +88,4 @@ frontend prometheus
   mode http
   http-request use-service prometheus-exporter if { path /metrics }
   no log
-{% endraw %}
+

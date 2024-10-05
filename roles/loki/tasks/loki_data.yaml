@@ -23,7 +23,7 @@
   lvol:
     vg: myvg
     lv: mylv
-    size: 79g
+    size: 15g
 - name: create filesystem
   filesystem:
     fstype: ext4

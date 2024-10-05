@@ -25,7 +25,7 @@
     - prometheus
 
 - name: install and configure promtail
-  hosts: all
+  hosts: balancers webservers
   roles:
     - promtail
 

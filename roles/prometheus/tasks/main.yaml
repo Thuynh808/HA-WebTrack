@@ -51,18 +51,12 @@
     owner: root
     group: root
     mode: '0644'
-- name: add targets in prometheus.yml 
-  blockinfile:
-    path: /etc/prometheus/prometheus.yml
-    block: |
-      # block indent
-        - job_name: 'node_exporter'
-          static_configs:
-            - targets: ['192.168.68.91:9100', '192.168.68.92:9100', '192.168.68.93:9100']
-        - job_name: 'haproxy_metrics'
-          static_configs:
-            - targets: ['192.168.68.91:8405']
-    insertafter: EOF
+- name: run config template for prometheus.yml 
+  template:
+    src: prometheus_config.j2
+    dest: /etc/prometheus/prometheus.yml
+    owner: prometheus
+    group: prometheus
 - name: selinux port open
   seport:
     ports: 9090

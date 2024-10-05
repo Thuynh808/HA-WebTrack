@@ -1,6 +1,6 @@
 ---
 - name: initial setup
-  hosts: all
+  hosts: balancers webservers
   tasks:
   - name: copy public key to nodes
     authorized_key:

@@ -8,7 +8,7 @@ receivers:
   - name: 'slack'
     slack_configs:
       - send_resolved: true
-        api_url: "<yourslackwebhookuri>"
+        api_url: "<yourslackwebhookuri>" # provide your slack webhook url
         channel: '#alerts'
         username: 'Alertmanager'
         icon_emoji: ':alert:'
