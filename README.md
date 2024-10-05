@@ -153,7 +153,7 @@ For issues related to specific components, refer to the component's documentatio
 ---
 <br><br>
 
-## Project Highlights
+## PROJECT HIGHLIGHTS
 
 This section showcases key moments and configurations in the HA-WEBTRACK project setup and testing phases. These visuals provide a glimpse into the project's complexity and the automation capabilities with Ansible.
 
