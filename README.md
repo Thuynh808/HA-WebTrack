@@ -11,7 +11,7 @@ Before you begin, ensure you have the following prepared:
 - **Network Configuration**: Set IP addresses and hostnames for each VM using `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices, which is essential for proper operation of services like HAProxy and the web servers.
 
 ### Server Specifications
-Below is a table outlining the specifications for each server used in the HA-WEBTRACK project:
+Below is a table outlining the specifications for each server used in the project:
 
 | Server        | Role            | CPU | RAM  | Additional Notes                    |
 |---------------|-----------------|-----|------|-------------------------------------|
