@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-    <h1>System Information Dashboard</h1>
+    <h1>WELCOME TO {{ ansible_fqdn }} AT {{ ansible_default_ipv4['address'] }}</h1>
     <pre>
 			       .,,uod8B8bou,,.
 		      ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
@@ -49,8 +49,7 @@
 			  `!988888888899fT|!^"'
 			    `!9899fT|!^"'
 			      `!^"'
-
-	WELCOME TO {{ ansible_fqdn }} AT {{ ansible_default_ipv4['address'] }} 
+ 
 
 	Uptime: {{ ansible_uptime_seconds // 60 }} minutes
 	CPU: {{ ansible_processor_cores }} cores ({{ ansible_processor_nproc }} logical processors) 
