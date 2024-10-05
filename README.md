@@ -10,32 +10,45 @@ Before you begin, ensure you have the following prepared:
 - **Four Red Hat RHEL 9 VMs**: These will act as your control node, load balancer (HAProxy), and two web servers.
 - **Network Configuration**: Set IP addresses and hostnames for each VM using `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices, which is essential for proper operation of services like HAProxy and the web servers.
 
-- Insert the RHEL ISO on control node
-- Run the command to mount the ISO:
+### Server Specifications
+Below is a table outlining the specifications for each server used in the HA-WEBTRACK project:
+
+| Server        | Role            | CPU | RAM  | Additional Notes                    |
+|---------------|-----------------|-----|------|-------------------------------------|
+| Control Node  | Management      | 2   | 4 GB | Second disk provisioned (min 20 GB) |
+| Node1 (HAProxy) | Load Balancer | 2   | 4 GB |                                     |
+| Node2 (WebServer) | Web Server  | 1   | 1 GB |                                     |
+| Node3 (WebServer) | Web Server  | 1   | 1 GB |                                     |
+
+> **Note:** Ensure each server meets or exceeds the specifications listed to ensure optimal performance and reliability of the HA-WEBTRACK environment.
+
+### Setup Environment
+- **Insert the RHEL ISO on control node**
+- **Run the command to mount the ISO:**
   ```bash
   sudo mount /dev/sr0 /mnt
   ```
-- Add and configure the repository from the ISO:
+- **Add and configure the repository from the ISO:**
   ```bash
   dnf config-manager --add-repo=file:///mnt/AppStream
   dnf config-manager --add-repo=file:///mnt/BaseOS
   echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_AppStream.repo
   echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_BaseOS.repo
   ```
-- Install `git` and `ansible-core`:
+- **Install `git` and `ansible-core`:**
   ```bash
   dnf install -y git ansible-core
   ```
-- Create `ansible` user on `control node` and set password:
+- **Create `ansible` user on `control node` and set password:**
   ```bash
   useradd ansible
   passwd ansible # Follow prompts to set password
   ```
-- Add the `ansible` user to the `sudoers` file to grant necessary privileges:<br><br>
+- **Add the `ansible` user to the `sudoers` file to grant necessary privileges:**
   ```bash
   sudo echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible
   ```
-- Switch to the ansible user and set up an SSH key pair:<br><br>
+- **Switch to the ansible user and set up an SSH key pair:**
   ```bash
   su - ansible
   ssh-keygen # Press enter to accept the default file location and no passphrase
@@ -61,18 +74,19 @@ To install and set up the project, follow these steps:
    ```bash
    vim inventory
    ```
-   > **Note:** Change IP addresses for all 4 servers
+> **Note:** Make sure to change IP addresses for all 4 servers according to your setup
 5. **Run the initial setup script:**
    ```bash
    ./initial-setup.sh
    ```
-   **This script prepares our ansible environment by setting up necessary ansible user, host configurations and prerequisites.** *ansible user password: 'password'*
+   **This script prepares our ansible environment by setting up necessary ansible user, host configurations, ssh-keys and repositories.** 
+   *ansible user password: 'password'*
 
-   > **Note:** before installing components, add your slack webhook url for alertmanager to send alerts
+> **Note:** before installing components, add your slack webhook url for alertmanager to send alerts
    ```bash
    vim roles/alertmanager/templates/alertmanager_config.j2
    ```
-7. **Execute the main Ansible playbook:**
+6. **Execute the main Ansible playbook:**
    ```bash
    ansible-playbook site.yaml -vv
    ```
