@@ -19,7 +19,7 @@ The HA-WEBTRACK project utilizes RHCSA and RHCE principles to develop a high-ava
 
 ### Versions of Tools Used
 
-This section outlines the specific versions of the tools and technologies deployed in the HA-WEBTRACK project, ensuring compatibility and stability across all components:
+This section outlines the specific versions of the tools and technologies deployed ensuring compatibility and stability across all components:
 
 - **VirtualBox**: Version 7.0.14
 - **RHEL VMs**: RHEL 9.4
