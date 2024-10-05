@@ -50,11 +50,7 @@ To install and set up the project, follow these steps:
     git clone https://github.com/Thuynh808/HA-WebTrack
     cd HA-WebTrack
     ```
-3. **Install required Ansible collections:**
-   
-   ```bash
-   ansible-galaxy collection install -r requirements.yaml
-   ```
+
 4. **Mount the rhel iso:**
 
    ```bash
@@ -66,7 +62,13 @@ To install and set up the project, follow these steps:
    ./initial-setup.sh
    ```
    This script prepares our ansible environment by setting up necessary ansible user, hosts configurations and prerequisites.
-6. **Execute the main Ansible playbook:**
+
+   3. **Install required Ansible collections:**
+   
+   ```bash
+   ansible-galaxy collection install -r requirements.yaml
+   ```
+7. **Execute the main Ansible playbook:**
 
    ```bash
    ansible-playbook site.yaml -vv
