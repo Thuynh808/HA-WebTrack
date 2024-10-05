@@ -7,17 +7,8 @@ The HA-WEBTRACK project is designed to create a high-availability web server env
 
 ### Prerequisites
 Before you begin, ensure you have the following prepared:
-- **Git** is installed on your control machine.
-- **Four RHEL 9 VMs**: These will act as your control node, load balancer, and two web servers.
+- **Four redhat-RHEL 9 VMs**: These will act as your control node, load balancer(HAproxy), and two web servers.
 - **Network Configuration**: Set IP addresses and hostnames for each VM using `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices, which is essential for proper operation of services like HAProxy and the web servers.
-
-
-    | Host Name                 | IP Address     | Description                   |
-    |---------------------------|----------------|-------------------------------|
-    | control.streetrack.org    | 192.168.68.90  | Grafana, Prometheus, Loki, Alertmanager |
-    | node1.streetrack.org      | 192.168.68.91  | Load balancing the web servers, Node Exporter, HAProxy Exports, Promtail |
-    | node2.streetrack.org      | 192.168.68.92  | Apache HTTPD, Node Exporter, Promtail |
-    | node3.streetrack.org      | 192.168.68.93  | Apache HTTPD, Node Exporter, Promtail |
 
 - insert rhel iso
 - run command to mount the iso
@@ -75,11 +66,12 @@ To install and set up the project, follow these steps:
    ```bash
    sudo mount /dev/sr0 /mnt
    ```
+> **Note:** change ipaddresses for all 4 servers
 6. configure inventory ansible_host
    ```bash
    vim inventory
    ```
-   change ipaddresses for all 4 servers
+
 5. **Run the initial setup script:**
    
    ```bash
@@ -87,6 +79,11 @@ To install and set up the project, follow these steps:
    ```
    This script prepares our ansible environment by setting up necessary ansible user, hosts configurations and prerequisites.
 
+> **Note:** before installing components, add your slack webhook url for alertmanager to send alerts
+
+   ```bash
+   vim roles/alertmanager/templates/alertmanager_config.j2
+   ```
 
 7. **Execute the main Ansible playbook:**
 
