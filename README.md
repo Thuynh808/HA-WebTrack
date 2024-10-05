@@ -28,8 +28,8 @@ Before you begin, ensure you have the following prepared:
   ```bash
   dnf config-manager --add-repo=file:///mnt/AppStream
   dnf config-manager --add-repo=file:///mnt/BaseOS
-  echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_AppStream
-  echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_BaseOS
+  echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_AppStream.repo
+  echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_BaseOS.repo
   ```
 - install git and ansible-core
   ```bash
