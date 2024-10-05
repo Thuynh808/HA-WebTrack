@@ -157,38 +157,74 @@ For issues related to specific components, refer to the component's documentatio
 
 This section showcases key moments and configurations in the HA-WEBTRACK project setup and testing phases. These visuals provide a glimpse into the project's complexity and the automation capabilities with Ansible.
 
-### Initial Setup
+<details close>
+<summary> <h2>Initial Setup</h2> </summary>
+
 - **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
 - **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
 
-### Webserver Setup
-- **Description**: Highlighting the configuration of Prometheus, Grafana, or Loki.
-- **Screenshot**: `![Monitoring Tools Setup](url-to-image.jpg)` Show the dashboard setup or critical monitoring configurations.
+</details>
 
-### Balancer(HAproxy) Setup
-- **Description**: Explanation of how load testing was conducted using tools like ApacheBench.
-- **Screenshot**: `![Load Testing Execution](url-to-image.jpg)` Visual of the load testing in action or the results displayed in Grafana.
+<details close>
+<summary> <h2>Webserver Setup</h2> </summary>
 
-### Grafana Setup
-- **Description**: Details on how failover was tested and what the expected outcomes were.
-- **Screenshot**: `![Failover Scenario](url-to-image.jpg)` Capture the moment of failover, showing how the traffic was redirected or handled.
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
 
-### Prometheus and Node Exporter Setup
-- **Description**: Setup of Alertmanager to send real-time alerts.
-- **Screenshot**: `![Alerts Setup](url-to-image.jpg)` Example alerts on your Slack channel or the Alertmanager configuration.
+</details>
 
-### Loki and Promtail Setup
-- **Description**: Setup of Alertmanager to send real-time alerts.
-- **Screenshot**: `![Alerts Setup](url-to-image.jpg)` Example alerts on your Slack channel or the Alertmanager configuration.
+<details close>
+<summary> <h2>Balancer(HAproxy) Setup</h2> </summary>
 
-### Alertmanager Setup
-- **Description**: Setup of Alertmanager to send real-time alerts.
-- **Screenshot**: `![Alerts Setup](url-to-image.jpg)` Example alerts on your Slack channel or the Alertmanager configuration.
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
 
-### Final System Overview
-- **Description**: A snapshot of all components working together.
-- **Screenshot**: `![System Overview](url-to-image.jpg)` A comprehensive view of the entire setup or dashboard showing all metrics in real-time.
+</details>
 
-### Testing High Load and Failover
-- **Description**: A snapshot of all components working together.
-- **Screenshot**: `![System Overview](url-to-image.jpg)` A comprehensive view of the entire setup or dashboard showing all metrics in real-time.
+<details close>
+<summary> <h2>Grafana Setup</h2> </summary>
+
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+
+</details>
+
+<details close>
+<summary> <h2>Prometheus and Node Exporter Setup</h2> </summary>
+
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+
+</details>
+
+<details close>
+<summary> <h2>Loki and Promtail Setup</h2> </summary>
+
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+
+</details>
+
+<details close>
+<summary> <h2>Alertmanager Setup</h2> </summary>
+
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+
+</details>
+
+<details close>
+<summary> <h2>Final System Overview</h2> </summary>
+
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+
+</details>
+
+<details close>
+<summary> <h2>Testing High Load and Failover</h2> </summary>
+
+- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
+- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+
+</details>
