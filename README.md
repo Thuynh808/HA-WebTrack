@@ -222,7 +222,7 @@ This section showcases key moments and configurations in the HA-WEBTRACK project
 </details>
 
 <details close>
-<summary> <h2>Testing High Load and Failover</h2> </summary>
+<summary> <h2>Testing HighLoad/Failover</h2> </summary>
 
 - **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
 - **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
