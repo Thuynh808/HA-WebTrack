@@ -38,7 +38,8 @@ This section outlines the specific versions of the tools and technologies deploy
 
 ### Prerequisites
 Before we begin, ensure the following are prepared:
-- **Four Red Hat RHEL 9 VMs**: These will act as our control node, load balancer (HAProxy), and two web servers *root password: 'password'*
+- **Four Red Hat RHEL 9 VMs**: These will act as our control node, load balancer (HAProxy), and two web servers
+> **Note:** *root password: 'password'*
 - **Network Configuration**: Set IP addresses and hostnames for each VM using tools like `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices.
 
 ### Server Specifications
@@ -105,7 +106,7 @@ To install and set up the project, follow these steps:
    ```bash
    vim inventory
    ```
-> **Note:** Make sure to change IP addresses for all 4 servers according to your setup
+> **Note:** Replace IP addresses for all 4 servers and control node's fqdn and hostname according to your setup
 5. **Run the initial setup script:** <br><br>
    ```bash
    ./initial-setup.sh
@@ -135,19 +136,19 @@ After installation, verify that all components are running correctly by accessin
   | Control Node | Prometheus | &lt;controlnode_ip&gt;:9090 |
   | Control Node | Loki(through Grafana) | &lt;controlnode_ip&gt;:3000 |
   | Control Node | Alertmanager | &lt;controlnode_ip&gt;:9093 |
-  | HAProxy (node1.streetrack.org) | HAProxy | &lt;node1_ip&gt;:80 |
-  | HAProxy (node1.streetrack.org) | Node Exporter | &lt;node1_ip&gt;:9100 |
-  | HAProxy (node1.streetrack.org) | HAProxy Exports | &lt;node1_ip&gt;:8405/metrics |
-  | HAProxy (node1.streetrack.org) | Promtail | &lt;node1_ip&gt;:9080 |
-  | Web Server 1 (node2.streetrack.org) | Web Server | &lt;node2_ip&gt;:80 |
-  | Web Server 1 (node2.streetrack.org) | Node Exporter | &lt;node2_ip&gt;:9100 |
-  | Web Server 1 (node2.streetrack.org) | Promtail | &lt;node2_ip&gt;:9080 |
-  | Web Server 2 (node3.streetrack.org) | Web Server | &lt;node3_ip&gt;:80 |
-  | Web Server 2 (node3.streetrack.org) | Node Exporter | &lt;node3_ip&gt;:9100 |
-  | Web Server 2 (node3.streetrack.org) | Promtail | &lt;node3_ip&gt;:9080 |
+  | HAProxy (node1) | HAProxy | &lt;node1_ip&gt;:80 |
+  | HAProxy (node1) | Node Exporter | &lt;node1_ip&gt;:9100 |
+  | HAProxy (node1) | HAProxy Exports | &lt;node1_ip&gt;:8405/metrics |
+  | HAProxy (node1) | Promtail | &lt;node1_ip&gt;:9080 |
+  | Web Server 1 (node2) | Web Server | &lt;node2_ip&gt;:80 |
+  | Web Server 1 (node2) | Node Exporter | &lt;node2_ip&gt;:9100 |
+  | Web Server 1 (node2) | Promtail | &lt;node2_ip&gt;:9080 |
+  | Web Server 2 (node3) | Web Server | &lt;node3_ip&gt;:80 |
+  | Web Server 2 (node3) | Node Exporter | &lt;node3_ip&gt;:9100 |
+  | Web Server 2 (node3) | Promtail | &lt;node3_ip&gt;:9080 |
 
 
 ### Troubleshooting
-If you encounter issues during the Ansible playbook execution, check the Ansible logs for detailed error messages.
+When encountering issues during the Ansible playbook execution, check the Ansible logs for detailed error messages.
 Ensure all prerequisites are correctly installed and configured before starting the installation.
 For issues related to specific components, refer to the component's documentation or the troubleshooting section of this guide.
