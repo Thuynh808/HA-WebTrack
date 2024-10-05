@@ -75,13 +75,12 @@ Below is a table outlining the specifications for each server used in the projec
   useradd ansible
   passwd ansible # Follow prompts to set password
   ```
-- **Add the `ansible` user to the `sudoers` file to grant necessary privileges:** <br><br>
+- **Add the `ansible` user to the `sudoers` file to grant necessary privileges and switch to `ansible` user:** <br><br>
   ```bash
   sudo echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible
   ```
-- **Switch to the ansible user and set up an SSH key pair:** <br><br>
+- **Set up an SSH key pair:** <br><br>
   ```bash
-  su - ansible
   ssh-keygen # Press enter 3x to accept the default file location and no passphrase
   ```
 
