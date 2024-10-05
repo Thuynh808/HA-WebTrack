@@ -2,8 +2,9 @@
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
 {{ hostvars['localhost']['ansible_host'] }}   control.streetrack.org   control
-{% for host in groups['all'] %}
-{{ hostvars[host]['ansible_default_ipv4']['address'] }}   {{ hostvars[host]['ansible_fqdn'] }}   {{ hostvars[host]['ansible_hostname'] }}
+{% for group in ['balancers', 'webservers'] %}
+  {% for host in groups[group] %}
+    {{ hostvars[host]['ansible_default_ipv4']['address'] }}   {{ hostvars[host]['ansible_fqdn'] }}   {{ hostvars[host]['ansible_hostname'] }}
+  {% endfor %}
 {% endfor %}
-
 
