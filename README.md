@@ -190,7 +190,7 @@ This section showcases key moments and configurations in the HA-WEBTRACK project
 </details>
 
 <details close>
-<summary> <h2>Prometheus/Node Exporter Setup</h2> </summary>
+<summary> <h2>Prometheus/NodeExporter Setup</h2> </summary>
 
 - **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
 - **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
