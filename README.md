@@ -78,6 +78,7 @@ Below is a table outlining the specifications for each server used in the projec
 - **Add the `ansible` user to the `sudoers` file to grant necessary privileges and switch to `ansible` user:** <br><br>
   ```bash
   sudo echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible
+  su - ansible
   ```
 - **Set up an SSH key pair:** <br><br>
   ```bash
