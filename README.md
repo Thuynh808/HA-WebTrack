@@ -23,32 +23,32 @@ Below is a table outlining the specifications for each server used in the projec
 > **Note:** Ensure each server meets or exceeds the specifications listed to ensure optimal performance and reliability of the HA-WEBTRACK environment.
 
 ### Setup Environment
-- **Insert the RHEL ISO on control node**
-- **Run the command to mount the ISO:**
+- **Insert the RHEL ISO on control node** <br><br>
+- **Run the command to mount the ISO:** <br><br>
   ```bash
   sudo mount /dev/sr0 /mnt
   ```
-- **Add and configure the repository from the ISO:**
+- **Add and configure the repository from the ISO:** <br><br>
   ```bash
   dnf config-manager --add-repo=file:///mnt/AppStream
   dnf config-manager --add-repo=file:///mnt/BaseOS
   echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_AppStream.repo
   echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_BaseOS.repo
   ```
-- **Install `git` and `ansible-core`:**
+- **Install `git` and `ansible-core`:** <br><br>
   ```bash
   dnf install -y git ansible-core
   ```
-- **Create `ansible` user on `control node` and set password:**
+- **Create `ansible` user on `control node` and set password:** <br><br>
   ```bash
   useradd ansible
   passwd ansible # Follow prompts to set password
   ```
-- **Add the `ansible` user to the `sudoers` file to grant necessary privileges:**
+- **Add the `ansible` user to the `sudoers` file to grant necessary privileges:** <br><br>
   ```bash
   sudo echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible
   ```
-- **Switch to the ansible user and set up an SSH key pair:**
+- **Switch to the ansible user and set up an SSH key pair:** <br><br>
   ```bash
   su - ansible
   ssh-keygen # Press enter (3x) to accept the default file location and no passphrase
@@ -57,37 +57,37 @@ Below is a table outlining the specifications for each server used in the projec
 ### Installation
 To install and set up the project, follow these steps:
 
-1. **Clone the repository:**
+1. **Clone the repository:** <br><br>
    ```bash
    git clone https://github.com/Thuynh808/HA-WebTrack
    cd HA-WebTrack
    ```
-2. **Install required Ansible collections:**
+2. **Install required Ansible collections:** <br><br>
    ```bash
    ansible-galaxy collection install -r requirements.yaml
    ```
-3. **Confirm Mount the RHEL ISO:**
+3. **Confirm Mount the RHEL ISO:** <br><br>
    ```bash
    sudo mount /dev/sr0 /mnt
    ```
-4. **Configure inventory `ansible_host`:**
+4. **Configure inventory `ansible_host`:** <br><br>
    ```bash
    vim inventory
    ```
 > **Note:** Make sure to change IP addresses for all 4 servers according to your setup
-5. **Run the initial setup script:**
+5. **Run the initial setup script:** <br><br>
    ```bash
    ./initial-setup.sh
    ```
-   **This script prepares our ansible environment by setting up necessary ansible user, host configurations, ssh-keys and repositories.** 
+   **This script prepares our ansible environment by setting up necessary ansible user, host configurations, ssh-keys and repositories.** <br><br>
    *ansible user password: 'password'*
 
 > **Note:** before installing components, add your slack webhook url for alertmanager to send alerts
-6. **Edit alertmanager config file:**   
+6. **Edit alertmanager config file:** <br><br>
    ```bash
    vim roles/alertmanager/templates/alertmanager_config.j2
    ```
-7. **Execute the main Ansible playbook:**
+7. **Execute the main Ansible playbook:** <br><br>
    ```bash
    ansible-playbook site.yaml -vv
    ```
