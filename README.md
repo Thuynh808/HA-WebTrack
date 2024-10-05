@@ -82,7 +82,7 @@ Below is a table outlining the specifications for each server used in the projec
 - **Switch to the ansible user and set up an SSH key pair:** <br><br>
   ```bash
   su - ansible
-  ssh-keygen # Press enter (3x) to accept the default file location and no passphrase
+  ssh-keygen # Press enter 3x to accept the default file location and no passphrase
   ```
 
 ### Installation
