@@ -102,7 +102,7 @@ After installation, verify that all components are running correctly by accessin
 
   | Server | Service Name | URL |
   |--------|--------------|-----|
-  | Control Node | Grafana | [http://192.168.68.90:3000] |
+  | Control Node | Grafana | http://192.168.68.90:3000 |
   | Control Node | Prometheus | [http://192.168.68.90:9090](http://192.168.68.90:9090) |
   | Control Node | Loki(through Grafana) | [http://192.168.68.90:3000](http://192.168.68.90:3000) |
   | Control Node | Alertmanager | [http://192.168.68.90:9093](http://192.168.68.90:9093) |
