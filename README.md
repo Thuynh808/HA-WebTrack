@@ -8,7 +8,7 @@ The HA-WEBTRACK project is designed to create a high-availability web server env
 ### Prerequisites
 Before you begin, ensure you have the following prepared:
 - **Four Red Hat RHEL 9 VMs**: These will act as your control node, load balancer (HAProxy), and two web servers.
-- **Network Configuration**: Set IP addresses and hostnames for each VM using `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices, which is essential for proper operation of services like HAProxy and the web servers.
+- **Network Configuration**: Set IP addresses and hostnames for each VM using tools like `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices.
 
 ### Server Specifications
 Below is a table outlining the specifications for each server used in the project:
