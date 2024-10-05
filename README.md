@@ -20,19 +20,25 @@ Before you begin, ensure you have the following prepared:
     | node3.streetrack.org      | 192.168.68.93  | Apache HTTPD, Node Exporter, Promtail |
 
 
+   
 - **Ansible User**:
   - Create an `ansible` user on localhost and set password to `password`:<br><br>
   ```bash
   useradd ansible
   passwd ansible
   ```
-  - Set up an SSH key pair for the `ansible` user with:<br><br>
-  ```bash
-  ssh-keygen
-  ```
   - Add the `ansible` user to the `sudoers` file to grant necessary privileges:<br><br>
   ```bash
   sudo echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible
+  ```
+  
+    - Switch to ansible user:<br><br>
+  ```bash
+  su - ansible
+  ```
+  - Set up an SSH key pair for the `ansible` user with:<br><br>
+  ```bash
+  ssh-keygen
   ```
 
 ### Installation
