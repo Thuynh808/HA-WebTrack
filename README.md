@@ -17,8 +17,6 @@ The HA-WEBTRACK project utilizes RHCSA and RHCE principles to develop a high-ava
 - **Alertmanager**: Integrates with Slack to send real-time alerts, enhancing incident response capabilities.
 - **GitHub**: Hosts project code for version control and collaborative development.
 
-This streamlined setup ensures each component is optimized for high availability and security, essential for maintaining a stable and efficient web server environment.
-
 ### Versions of Tools Used
 
 This section outlines the specific versions of the tools and technologies deployed in the HA-WEBTRACK project, ensuring compatibility and stability across all components:
