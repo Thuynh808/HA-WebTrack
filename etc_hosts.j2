@@ -3,8 +3,7 @@
 
 {{ hostvars['localhost']['ansible_host'] }}   control.streetrack.org   control
 {% for group in ['balancers', 'webservers'] %}
-  {% for host in groups[group] %}
-    {{ hostvars[host]['ansible_default_ipv4']['address'] }}   {{ hostvars[host]['ansible_fqdn'] }}   {{ hostvars[host]['ansible_hostname'] }}
-  {% endfor %}
+{% for host in groups[group] %}
+{{ hostvars[host]['ansible_default_ipv4']['address'] }}   {{ hostvars[host]['ansible_fqdn'] }}   {{ hostvars[host]['ansible_hostname'] }}
 {% endfor %}
-
+{% endfor %}
