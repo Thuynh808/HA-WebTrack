@@ -83,10 +83,11 @@ To install and set up the project, follow these steps:
    *ansible user password: 'password'*
 
 > **Note:** before installing components, add your slack webhook url for alertmanager to send alerts
+6. **Edit alertmanager config file:**   
    ```bash
    vim roles/alertmanager/templates/alertmanager_config.j2
    ```
-6. **Execute the main Ansible playbook:**
+7. **Execute the main Ansible playbook:**
    ```bash
    ansible-playbook site.yaml -vv
    ```
