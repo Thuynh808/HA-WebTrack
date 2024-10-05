@@ -19,7 +19,22 @@ Before you begin, ensure you have the following prepared:
     | node2.streetrack.org      | 192.168.68.92  | Apache HTTPD, Node Exporter, Promtail |
     | node3.streetrack.org      | 192.168.68.93  | Apache HTTPD, Node Exporter, Promtail |
 
-
+- insert rhel iso
+- run command to mount the iso
+  ```bash
+  sudo mount /dev/sr0 /mnt
+  ```
+- add and configure repo from iso
+  ```bash
+  dnf config-manager --add-repo=file:///mnt/AppStream
+  dnf config-manager --add-repo=file:///mnt/BaseOS
+  echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_AppStream
+  echo "gpgcheck=0" >> /etc/yum.repos.d/mnt_BaseOS
+  ```
+- install git and ansible-core
+  ```bash
+  dnf install -y git ansible-core
+  ```
    
 - **Ansible User**:
   - Create an `ansible` user on localhost and set password to `password`:<br><br>
