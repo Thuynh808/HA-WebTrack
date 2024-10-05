@@ -21,19 +21,15 @@ The HA-WEBTRACK project utilizes RHCSA and RHCE principles to develop a high-ava
 
 This section outlines the specific versions of the tools and technologies deployed ensuring compatibility and stability across all components:
 
-- **VirtualBox**: Version 7.0.14
-- **RHEL VMs**: RHEL 9.4
-- **Ansible**: Version 2.14
-- **HAProxy**: Version 2.4
-- **Apache HTTPD**: Version 2.4
-- **Prometheus**: Version 2.54
-- **Grafana-Enterprise**: Version 11.2
-- **Loki**: Version 3.2
-- **Promtail**: Version 3.2
-- **Node Exporter**: Version 1.8
-- **Alertmanager**: Version 0.27
-- **GitHub**: Latest
-  
+| Component              | Version                   |
+|------------------------|---------------------------|
+| VirtualBox: 7.0.14     | Grafana-Enterprise: 11.2  | 
+| RHEL VMs: 9.4          | Loki: 3.2                 |
+| Ansible: 2.14          | Promtail: 3.2             |
+| HAProxy: 2.4           | Node Exporter: 1.8        |
+| Apache HTTPD: 2.4      | Alertmanager: 0.27        |
+| Prometheus: 2.54       | GitHub: Latest            |
+
 ## Getting Started
 
 ### Prerequisites
