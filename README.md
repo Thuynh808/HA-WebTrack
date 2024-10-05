@@ -161,19 +161,27 @@ This section showcases key moments and configurations in the HA-WEBTRACK project
 - **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
 - **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
 
-### Configuration of Monitoring Tools
+### Webserver Setup
 - **Description**: Highlighting the configuration of Prometheus, Grafana, or Loki.
 - **Screenshot**: `![Monitoring Tools Setup](url-to-image.jpg)` Show the dashboard setup or critical monitoring configurations.
 
-### Load Testing
+### Balancer(HAproxy) Setup
 - **Description**: Explanation of how load testing was conducted using tools like ApacheBench.
 - **Screenshot**: `![Load Testing Execution](url-to-image.jpg)` Visual of the load testing in action or the results displayed in Grafana.
 
-### Failover Testing
+### Grafana Setup
 - **Description**: Details on how failover was tested and what the expected outcomes were.
 - **Screenshot**: `![Failover Scenario](url-to-image.jpg)` Capture the moment of failover, showing how the traffic was redirected or handled.
 
-### System Alerts
+### Prometheus and Node Exporter Setup
+- **Description**: Setup of Alertmanager to send real-time alerts.
+- **Screenshot**: `![Alerts Setup](url-to-image.jpg)` Example alerts on your Slack channel or the Alertmanager configuration.
+
+### Loki and Promtail Setup
+- **Description**: Setup of Alertmanager to send real-time alerts.
+- **Screenshot**: `![Alerts Setup](url-to-image.jpg)` Example alerts on your Slack channel or the Alertmanager configuration.
+
+### Alertmanager Setup
 - **Description**: Setup of Alertmanager to send real-time alerts.
 - **Screenshot**: `![Alerts Setup](url-to-image.jpg)` Example alerts on your Slack channel or the Alertmanager configuration.
 
@@ -181,3 +189,6 @@ This section showcases key moments and configurations in the HA-WEBTRACK project
 - **Description**: A snapshot of all components working together.
 - **Screenshot**: `![System Overview](url-to-image.jpg)` A comprehensive view of the entire setup or dashboard showing all metrics in real-time.
 
+### Testing High Load and Failover
+- **Description**: A snapshot of all components working together.
+- **Screenshot**: `![System Overview](url-to-image.jpg)` A comprehensive view of the entire setup or dashboard showing all metrics in real-time.
