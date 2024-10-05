@@ -102,20 +102,20 @@ After installation, verify that all components are running correctly by accessin
 
   | Server | Service Name | URL |
   |--------|--------------|-----|
-  | Control Node | Grafana | "controlnode-ip":3000 |
-  | Control Node | Prometheus | [http://192.168.68.90:9090](http://192.168.68.90:9090) |
-  | Control Node | Loki(through Grafana) | [http://192.168.68.90:3000](http://192.168.68.90:3000) |
-  | Control Node | Alertmanager | [http://192.168.68.90:9093](http://192.168.68.90:9093) |
-  | HAProxy (node1.streetrack.org) | HAProxy | [http://192.168.68.91:80](http://192.168.68.91:80) |
-  | HAProxy (node1.streetrack.org) | Node Exporter | [http://192.168.68.91:9100](http://192.168.68.91:9100) |
-  | HAProxy (node1.streetrack.org) | HAProxy Exports | [http://192.168.68.91:8405/metrics](http://192.168.68.91:8405/metrics) |
-  | HAProxy (node1.streetrack.org) | Promtail | [http://192.168.68.91:9080](http://192.168.68.91:9080) |
-  | Web Server 1 (node2.streetrack.org) | Web Server | [http://192.168.68.92:80](http://192.168.68.92:80) |
-  | Web Server 1 (node2.streetrack.org) | Node Exporter | [http://192.168.68.92:9100](http://192.168.68.92:9100) |
-  | Web Server 1 (node2.streetrack.org) | Promtail | [http://192.168.68.92:9080](http://192.168.68.92:9080) |
-  | Web Server 2 (node3.streetrack.org) | Web Server | [http://192.168.68.93:80](http://192.168.68.93:80) |
-  | Web Server 2 (node3.streetrack.org) | Node Exporter | [http://192.168.68.93:9100](http://192.168.68.93:9100) |
-  | Web Server 2 (node3.streetrack.org) | Promtail | [http://192.168.68.93:9080](http://192.168.68.93:9080) |
+  | Control Node | Grafana | &lt;controlnode_ip&gt;:3000 |
+  | Control Node | Prometheus | &lt;controlnode_ip&gt;:9090 |
+  | Control Node | Loki(through Grafana) | &lt;controlnode_ip&gt;:3000 |
+  | Control Node | Alertmanager | &lt;controlnode_ip&gt;:9093 |
+  | HAProxy (node1.streetrack.org) | HAProxy | &lt;node1_ip&gt;:80 |
+  | HAProxy (node1.streetrack.org) | Node Exporter | &lt;node1_ip&gt:9100 |
+  | HAProxy (node1.streetrack.org) | HAProxy Exports | &lt;node1_ip&gt:8405/metrics |
+  | HAProxy (node1.streetrack.org) | Promtail | &lt;node1_ip&gt:9080 |
+  | Web Server 1 (node2.streetrack.org) | Web Server | &lt;node2_ip&gt:80 |
+  | Web Server 1 (node2.streetrack.org) | Node Exporter | &lt;node2_ip&gt:9100 |
+  | Web Server 1 (node2.streetrack.org) | Promtail | &lt;node2_ip&gt:9080 |
+  | Web Server 2 (node3.streetrack.org) | Web Server | &lt;node3_ip&gt:80 |
+  | Web Server 2 (node3.streetrack.org) | Node Exporter | &lt;node3_ip&gt:9100 |
+  | Web Server 2 (node3.streetrack.org) | Promtail | &lt;node3_ip&gt:9080 |
 
 
 ### Troubleshooting
