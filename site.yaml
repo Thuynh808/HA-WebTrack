@@ -29,12 +29,24 @@
   hosts: localhost
   roles:
     - prometheus
+    
+- name: wait for connection
+  hosts: balancers webservers
+  tasks:
+  - name: Wait for systems to become reachable
+    wait_for_connection:
 
 - name: install and configure promtail
   hosts: balancers webservers
   roles:
     - promtail
-
+    
+- name: wait for connection
+  hosts: balancers webservers
+  tasks:
+  - name: Wait for systems to become reachable
+    wait_for_connection:
+    
 - name: install and configure loki
   hosts: localhost
   roles:
