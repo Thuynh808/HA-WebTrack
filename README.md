@@ -110,7 +110,7 @@ To install and set up the project, follow these steps:
    **This script prepares our ansible environment by setting up necessary ansible user, host configurations, ssh-keys and repositories.** <br><br>
    *ansible user password: 'password'*
 
-> **Note:** before installing components, add your slack webhook url for alertmanager to send alerts
+> **Note:** Before installing components, add your slack webhook url for alertmanager to send alerts
 6. **Edit alertmanager config file:** <br><br>
    ```bash
    vim roles/alertmanager/templates/alertmanager_config.j2
@@ -120,6 +120,12 @@ To install and set up the project, follow these steps:
    ansible-playbook site.yaml -vv
    ```
    **This command starts the configuration of all components as defined in the playbook. The -vv option increases verbosity, which can help with troubleshooting if needed.**
+
+> **Note:** You can also run individual playbooks for each component if there's any timeout errors.
+
+  ```bash
+  ansible-playbook playbooks/<playbook_name>.yaml
+  ```
 
 ### Verification
 After installation, verify that all components are running correctly by accessing the following URLs and ensuring that each service is operational:
