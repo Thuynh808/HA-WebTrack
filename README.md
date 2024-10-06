@@ -119,10 +119,10 @@ To install and set up the project, follow these steps:
    ```bash
    ansible-playbook site.yaml -vv
    ```
-   **This command starts the configuration of all components as defined in the playbook. The -vv option increases verbosity, which can help with troubleshooting if needed.**
+   **This command starts the installation and configuration of all components for this project. The -vv option increases verbosity, which can help with troubleshooting if needed.**
 
 > **Note:** You can also run individual playbooks for each component if there's any timeout errors.
-
+- **Run individual playbooks:** <br><br>
   ```bash
   ansible-playbook playbooks/<playbook_name>.yaml
   ```
