@@ -1,8 +1,8 @@
-# HA-WEBTRACK Project
+![ha-webtrack](https://i.imgur.com/DEkQXYc.png)
 
 ## Overview
 
-The HA-WEBTRACK project utilizes RHCSA and RHCE principles to develop a high-availability web server monitoring environment with open-source tools. Automated with Ansible and secured by SELinux, the setup includes establishing infrastructure, implementing alert rules, and creating a monitoring dashboard. The project further extends to testing system robustness through generating high load and analyzing failover. Converting Ansible playbooks into roles has streamlined installation and management, enhancing code reusability and update efficiency. This structured approach offers practical experience in system monitoring and metrics analysis.
+The HA-WEBTRACK project applies RHCSA and RHCE principles to create a high-availability web server environment using open-source tools. Automated with Ansible and secured by SELinux, this project streamlines infrastructure setup, logging, and alert rule implementation. It enhances system performance clarity by testing high loads and analyzing failover scenarios. By converting Ansible playbooks into roles, the project boosts installation efficiency and code reusability, providing a practical experience in system monitoring and metrics analysis.
 
 ### Key Components
 
