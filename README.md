@@ -1,4 +1,4 @@
-![ha-webtrack](https://i.imgur.com/yTnwiMd.png)
+![ha-webtrack](https://i.imgur.com/jQxEMtS.png)
 
 ## Overview
 
