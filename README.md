@@ -8,7 +8,7 @@ The HA-WEBTRACK project applies RHCSA and RHCE principles to create a high-avail
 
 - **VirtualBox**: Manages a secure virtual environment for all server roles including the control node, HAProxy, and web servers.
 - **Red Hat Enterprise Linux (RHEL) VMs**: Provides a stable and secure operating base for all nodes.
-- **Ansible**: Automates provisioning, configuration, and management of the server infrastructure.
+- **Ansible**: Automates configuration and management of the server infrastructure.
 - **HAProxy**: Balances load across web servers to enhance service reliability.
 - **Apache HTTPD**: Serves web content efficiently on the web servers.
 - **Prometheus** and **Grafana**: Monitor system performance with real-time metrics visualization.
