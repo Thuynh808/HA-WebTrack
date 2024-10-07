@@ -35,7 +35,7 @@ This section outlines the specific versions of the tools and technologies deploy
 ### Prerequisites
 Before we begin, ensure the following are prepared:
 - **Four Red Hat RHEL 9 VMs**: These will act as our control node, load balancer (HAProxy), and two web servers
-> **Note:** *root password: 'password'*
+> **Note:** Throughout this project, all servers and user *root password: 'password'*
 - **Network Configuration**: Set IP addresses and hostnames for each VM using tools like `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices.
 
 ### Server Specifications
