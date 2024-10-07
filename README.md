@@ -35,7 +35,7 @@ This section outlines the specific versions of the tools and technologies deploy
 ### Prerequisites
 Before we begin, ensure the following are prepared:
 - **Four Red Hat RHEL 9 VMs**: These will act as our control node, load balancer (HAProxy), and two web servers
-> **Note:** Throughout this project, all servers and user *root password: 'password'*
+> **Note:** Throughout this project, all servers and users *root password: 'password'*
 - **Network Configuration**: Set IP addresses and hostnames for each VM using tools like `nmtui` to ensure proper networking. Ensure that the networking mode is set to `Bridge Adapter` to allow the VMs to directly communicate with the network as independent devices.
 
 ### Server Specifications
@@ -108,7 +108,6 @@ To install and set up the project, follow these steps:
    ./initial-setup.sh
    ```
    **This script prepares our ansible environment by setting up necessary ansible user, host configurations, ssh-keys and repositories.** <br><br>
-   *ansible user password: 'password'*
 
 > **Note:** Before installing components, add your slack webhook url for alertmanager to send alerts
 6. **Edit alertmanager config file:** <br><br>
@@ -159,7 +158,7 @@ For issues related to specific components, refer to the component's documentatio
 ---
 <br><br>
 
-## PROJECT HIGHLIGHTS
+## THE BUILD
 
 This section showcases key moments and configurations in the HA-WEBTRACK project setup and testing phases. These visuals provide a glimpse into the project's complexity and the automation capabilities with Ansible.
 
