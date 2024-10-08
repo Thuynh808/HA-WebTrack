@@ -158,61 +158,69 @@ For issues related to specific components, refer to the component's documentatio
 ---
 <br><br>
 
-## THE BUILD
+## Project Highlights
 
-This section showcases key moments and configurations in the HA-WEBTRACK project setup and testing phases. These visuals provide a glimpse into the project's complexity and the automation capabilities with Ansible.
+This section showcases key milestones and achievements during the build and testing phases of the HA-WEBTRACK project. The following screenshots illustrate the successful deployment, configuration, and operation of the high-availability web server environment.
 
-<details close>
-<summary> <h2>Initial Setup</h2> </summary>
+1. Successful Execution of Ansible Playbooks
+Screenshot 1: Ansible Playbook Execution
 
-- **Install Ansible and vsftpd**: After setting up basic networking(ip address and hostnames), we need to configure our repository to install Ansible and vsftpd on our control node.
 
-![Initial Setup](https://i.imgur.com/s3IKQrU.png)
-![Initial Setup](https://i.imgur.com/VNWYgln.png)
-![Initial Setup](https://i.imgur.com/xa9n7L9.png)
-![Initial Setup](https://i.imgur.com/gF4foMo.png)
-![Initial Setup](https://i.imgur.com/jQtvvAL.png)
+Description: The site.yaml Ansible playbook ran successfully, automating the installation and configuration of all project components across the control node, HAProxy load balancer, and web servers. The output confirms that all tasks were completed without errors.
 
-- **Setup Ansible user**: Next, we'll create the Ansible user and ssh key pair on our control node.
+2. HAProxy Load Balancer Operational
+Screenshot 2: HAProxy Statistics Page
 
-![Initial Setup](https://i.imgur.com/bk7M36R.png)
 
-- **Setup Ansible Environment**: As our ansible user, we'll setup our project directory, ansible configuration, inventory, and requirements file.
+Description: The HAProxy statistics page displays the real-time status of the load balancer, showing that both web servers are online and actively handling requests. This confirms that load balancing is functioning as intended.
 
-![Initial Setup](https://i.imgur.com/i3hGfP1.png)
-![Initial Setup](https://i.imgur.com/oBF6VLS.png)
-![Initial Setup](https://i.imgur.com/uNgorKg.png)
-![Initial Setup](https://i.imgur.com/0SJcgxx.png)
-![Initial Setup](https://i.imgur.com/KIzyC4Y.png)
-![Initial Setup](https://i.imgur.com/Sqo4p9D.png)
-![Initial Setup](https://i.imgur.com/sDzj4gE.png)
-![Initial Setup](https://i.imgur.com/lRSsnZT.png)
-![Initial Setup](https://i.imgur.com/gbIe2SF.png)
+3. Web Servers Serving Content
+Screenshot 3: Web Server Default Page
 
-- We can now connect to our nodes with ansible! For now, we are logging into our nodes as the root user by providing the root user password each time.
 
-- **Setup /etc/hosts for all servers**: Here, we will write a playbook to copy our ansible user's public key and configure /etc/hosts file for all nodes. This will give our project a more streamlined approach. 
+Description: Accessing the web server's IP address displays the Apache HTTPD default page, indicating that the web server is running and serving content correctly.
 
-![Initial Setup](https://i.imgur.com/PczNCvt.png)
-![Initial Setup](https://i.imgur.com/BVvdVtC.png)
-![Initial Setup](https://i.imgur.com/3Lb46iJ.png)
-![Initial Setup](https://i.imgur.com/E2Mo43m.png)
-![Initial Setup](https://i.imgur.com/UQB16bF.png)
-![Initial Setup](https://i.imgur.com/GlfR2za.png)
-![Initial Setup](https://i.imgur.com/GUfq288.png)
+4. Monitoring with Grafana Dashboards
+Screenshot 4: Grafana System Metrics Dashboard
 
-- Our /etc/hosts file for all nodes have been updated! Also, we no longer have to provide the root password when executing ansible playbooks.
 
-- **Setup repository FTP server**: Here, we will write a playbook to copy our ansible user's public key and configure /etc/hosts file for all nodes. This will give our project a more streamlined approach.
+Description: The Grafana dashboard visualizes real-time system metrics collected by Prometheus, including CPU usage, memory consumption, and network traffic. This dashboard helps in monitoring the performance and health of the servers.
 
-![Initial Setup](https://i.imgur.com/BVvdVtC.png)
-![Initial Setup](https://i.imgur.com/3Lb46iJ.png)
-![Initial Setup](https://i.imgur.com/E2Mo43m.png)
-![Initial Setup](https://i.imgur.com/UQB16bF.png)
-![Initial Setup](https://i.imgur.com/GlfR2za.png)
-![Initial Setup](https://i.imgur.com/GUfq288.png)
+5. Log Aggregation with Loki and Promtail
+Screenshot 5: Loki Logs in Grafana
 
-</details>
+
+Description: Logs from all nodes are aggregated using Loki and can be queried through Grafana. This setup facilitates efficient troubleshooting and log analysis across the entire environment.
+
+6. Alertmanager Slack Integration
+Screenshot 6: Slack Alert Notification
+
+
+Description: Alertmanager sends real-time alerts to the designated Slack channel. This screenshot shows an alert notification for a simulated high CPU usage scenario, demonstrating the effectiveness of the alerting mechanism.
+
+7. Node Exporter Metrics in Prometheus
+Screenshot 7: Prometheus Targets Up
+
+
+Description: The Prometheus targets page confirms that Node Exporter is running on all nodes and that metrics are being successfully scraped. This ensures comprehensive monitoring of system resources.
+
+8. High Load Testing and Failover
+Screenshot 8: Load Testing Results
+
+
+Description: High load testing was performed using stress testing tools to simulate heavy traffic. The environment remained stable, with HAProxy effectively distributing the load between web servers, validating the failover capabilities.
+
+9. SELinux Security Enforcement
+Screenshot 9: SELinux in Enforcing Mode
+
+
+Description: SELinux is set to enforcing mode on all servers, enhancing the security posture of the environment. This screenshot shows the SELinux status command output confirming the enforcing mode.
+
+10. GitHub Repository
+Screenshot 10: GitHub Project Repository
+
+
+Description: The project code is hosted on GitHub for version control and collaboration. This repository contains all the Ansible playbooks, roles, and configuration files used in the project.
 
 <details close>
 <summary> <h2>Webserver Setup</h2> </summary>
