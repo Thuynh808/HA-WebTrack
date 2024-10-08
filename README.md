@@ -165,8 +165,52 @@ This section showcases key moments and configurations in the HA-WEBTRACK project
 <details close>
 <summary> <h2>Initial Setup</h2> </summary>
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+- **Install Ansible and vsftpd**: After setting up basic networking(ip address and hostnames), we need to configure our repository to install Ansible and vsftpd on our control node.
+
+![Initial Setup](https://i.imgur.com/s3IKQrU.png)
+![Initial Setup](https://i.imgur.com/VNWYgln.png)
+![Initial Setup](https://i.imgur.com/xa9n7L9.png)
+![Initial Setup](https://i.imgur.com/gF4foMo.png)
+![Initial Setup](https://i.imgur.com/jQtvvAL.png)
+
+- **Setup Ansible user**: Next, we'll create the Ansible user and ssh key pair on our control node.
+
+![Initial Setup](https://i.imgur.com/bk7M36R.png)
+
+- **Setup Ansible Environment**: As our ansible user, we'll setup our project directory, ansible configuration, inventory, and requirements file.
+
+![Initial Setup](https://i.imgur.com/i3hGfP1.png)
+![Initial Setup](https://i.imgur.com/oBF6VLS.png)
+![Initial Setup](https://i.imgur.com/uNgorKg.png)
+![Initial Setup](https://i.imgur.com/0SJcgxx.png)
+![Initial Setup](https://i.imgur.com/KIzyC4Y.png)
+![Initial Setup](https://i.imgur.com/Sqo4p9D.png)
+![Initial Setup](https://i.imgur.com/sDzj4gE.png)
+![Initial Setup](https://i.imgur.com/lRSsnZT.png)
+![Initial Setup](https://i.imgur.com/gbIe2SF.png)
+
+- We can now connect to our nodes with ansible! For now, we are logging into our nodes as the root user by providing the root user password each time.
+
+- **Setup /etc/hosts for all servers**: Here, we will write a playbook to copy our ansible user's public key and configure /etc/hosts file for all nodes. This will give our project a more streamlined approach. 
+
+![Initial Setup](https://i.imgur.com/PczNCvt.png)
+![Initial Setup](https://i.imgur.com/BVvdVtC.png)
+![Initial Setup](https://i.imgur.com/3Lb46iJ.png)
+![Initial Setup](https://i.imgur.com/E2Mo43m.png)
+![Initial Setup](https://i.imgur.com/UQB16bF.png)
+![Initial Setup](https://i.imgur.com/GlfR2za.png)
+![Initial Setup](https://i.imgur.com/GUfq288.png)
+
+- Our /etc/hosts file for all nodes have been updated! Also, we no longer have to provide the root password when executing ansible playbooks.
+
+- **Setup repository FTP server**: Here, we will write a playbook to copy our ansible user's public key and configure /etc/hosts file for all nodes. This will give our project a more streamlined approach.
+
+![Initial Setup](https://i.imgur.com/BVvdVtC.png)
+![Initial Setup](https://i.imgur.com/3Lb46iJ.png)
+![Initial Setup](https://i.imgur.com/E2Mo43m.png)
+![Initial Setup](https://i.imgur.com/UQB16bF.png)
+![Initial Setup](https://i.imgur.com/GlfR2za.png)
+![Initial Setup](https://i.imgur.com/GUfq288.png)
 
 </details>
 
