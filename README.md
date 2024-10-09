@@ -279,3 +279,43 @@ This section showcases key milestones and achievements during the build and test
 
 ![ha-webtrack](https://i.imgur.com/sGiHyht.png)
 </details>
+
+<details close>
+<summary> <h2>Promtail/Loki</h2> </summary>
+  
+- **Confirming promtail is up and running on port 9080 for `node1` `node2` and `node3`**
+
+![ha-webtrack](https://i.imgur.com/iCJqKRR.png)<br><br>
+
+- **We can see the different logs being pulled when navigating to promtail's port**
+
+![ha-webtrack](https://i.imgur.com/uSEVMkC.png)<br><br>
+
+- **Confirming loki is up and running on port 3100 for `control node`**
+
+![ha-webtrack](https://i.imgur.com/ye8PtPt.png)<br><br>
+
+- **After adding loki data source in grafana, logs are successfully populated for analyzing**
+
+![ha-webtrack](https://i.imgur.com/8NEKP8t.png)
+</details>
+
+<details close>
+<summary> <h2>Alertmanager</h2> </summary>
+  
+- **Alermanager started and running on port 9093**
+
+![ha-webtrack](https://i.imgur.com/g3GA5YN.png)<br><br>
+
+- **Navigating to `control node` on port 9093, we can confirm alertmanager is up**
+
+![ha-webtrack](https://i.imgur.com/Cox4P8v.png)<br><br>
+
+- **When navigating to alerts section in prometheus port on `control node`, we can see our alerts are up and none active**
+
+![ha-webtrack](https://i.imgur.com/OontrSP.png)<br><br>
+
+- **In the rules section of prometheus, we have promql queries used to defined our alert rules**
+
+![ha-webtrack](https://i.imgur.com/m8M70fH.png)
+</details>
