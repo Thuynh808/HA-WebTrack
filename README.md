@@ -371,11 +371,6 @@ Load Average:
   - Node2: 1-minute: 0.22
   - Node3: 1-minute: 0.29
     
-Network Traffic for HAProxy:
-- Inbound: Min: 191 B, Max: 410 B, Mean: 252 B
-- Outbound: Min: 4.83 kB, Max: 4.87 kB, Mean: 4.85 kB
-- Current inbound traffic: 4 kB
-  
 Memory Usage for Web Servers:
 - Node2: Min: 49.5%, Max: 49.5%, Mean: 49.5%
 - Node3: Min: 47.7%, Max: 47.7%, Mean: 47.7%
@@ -432,11 +427,6 @@ Load Average:
 - Web Servers:
   - Node2: 1-minute: 0.24
   - Node3: 1-minute: 2.26 (significant increase due to high traffic)
-
-Network Traffic for HAProxy:
-- Inbound: Min: 191 B, Max: 1.01 MB, Mean: 32.0 kB
-- Outbound: Min: 4.83 kB, Max: 1.06 MB, Mean: 38.2 kB
-- Peak outbound traffic reached 1.06 MB during the test.
 
 Memory Usage for Web Servers:
 - Node2: Min: 49.5%, Max: 50.0%, Mean: 49.6%
@@ -506,11 +496,6 @@ Load Average:
 - Web Servers:
   - Node2: 1-minute: 2.2
   - Node3: 1-minute: 43.7 (major spike due to heavy traffic)
-
-Network Traffic for HAProxy:
-- Inbound: Min: 251 B, Max: 1.45 MB, Mean: 254 kB
-- Outbound: Min: 4.83 kB, Max: 1.54 MB, Mean: 273 kB
-- Peak outbound traffic during the test was 1.54 MB.
 
 Memory Usage - Web Servers:
 - Node2: Min: 49.5%, Max: 50.2%, Mean: 49.8%
