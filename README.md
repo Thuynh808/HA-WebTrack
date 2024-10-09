@@ -463,7 +463,7 @@ HAProxy Logs:
 <details close>
 <summary> <h4>High Load</h4> </summary>
   
-- **Now we'll increase the numbe of requests and concurrent connections for this test.**
+- **Now we'll increase the numbe of requeststo 70.000 and 20 concurrent connections for this test.**
 
 ![ha-webtrack](https://i.imgur.com/iPW2sSK.png)<br><br>
 
