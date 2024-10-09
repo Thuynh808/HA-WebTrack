@@ -322,3 +322,139 @@ This section showcases key milestones and achievements during the build and test
 ![ha-webtrack](https://i.imgur.com/m8M70fH.png)
 </details>
 </details>
+
+<details close>
+<summary> <h2>Testing</h2> </summary>
+<details close>
+<summary> <h4>Baseline</h4> </summary>
+  
+- **First lets confirm SELinux is set to Enforcing on all nodes**
+
+![ha-webtrack](https://i.imgur.com/IfLaY6T.png)<br><br>
+
+- **Here, we'll install httpd-tools where `ab` Apache benchmark can be used to generate http requests to our server for testing**
+
+![ha-webtrack](https://i.imgur.com/V1Bjk1e.png)<br><br>
+
+- **Next, we increase the maximum tracked connections (nf_conntrack_max) for handling high traffic**
+
+![ha-webtrack](https://i.imgur.com/lONpkrF.png)<br><br>
+
+- **Baseline metrics can now be taken and recorded**
+
+![ha-webtrack](https://i.imgur.com/eDnLHnh.png)<br><br>
+![ha-webtrack](https://i.imgur.com/32rgVYp.png)<br><br>
+
+HAProxy and Web Server Metrics Summary
+
+- HAProxy Disk Usage: 16.0%
+- HAProxy Memory Usage: 12.5%
+- Server Uptime: All servers (HAProxy, node2, node3) up for 1.43 hours
+- Alerts: No alerts triggered
+- Active Backend Servers: 2 (node2, node3)
+  
+CPU Usage: 
+HAProxy:
+  - Min: 0.475%, Max: 1.17%, Mean: 0.782%
+  - Current: about 1%
+   
+Web Servers (node2 and node3):
+- Node2: Min: 1.48%, Max: 2.99%, Mean: 2.38%
+- Node3: Min: 1.69%, Max: 3.32%, Mean: 2.55%
+- Current: about 3%
+
+Load Average:
+- HAProxy:
+  - 1-minute: 0.2, 5-minute: 0.06, 15-minute: 0.02
+- Web Servers:
+  - Node2: 1-minute: 0.22
+  - Node3: 1-minute: 0.29
+    
+Network Traffic for HAProxy:
+- Inbound: Min: 191 B, Max: 410 B, Mean: 252 B
+- Outbound: Min: 4.83 kB, Max: 4.87 kB, Mean: 4.85 kB
+- Current inbound traffic: 4 kB
+  
+Memory Usage for Web Servers:
+- Node2: Min: 49.5%, Max: 49.5%, Mean: 49.5%
+- Node3: Min: 47.7%, Max: 47.7%, Mean: 47.7%
+- Current memory usage: about 50% (stable)
+  
+HTTP Request Rate for HAProxy:
+- Current request rate: 0
+  
+Session Rate for Web Servers:
+- Current session rate: 0
+
+HAProxy Logs:
+- No data available
+
+Overall Insights:
+- Low Traffic: Minimal network traffic and no HTTP requests, suggesting light usage
+- Stable Performance: CPU and memory usage on both HAProxy and web servers are low and stable
+- No Active Sessions: Both web servers show no active sessions, indicating no load on the system at the moment
+</details>
+
+<details close>
+<summary> <h4>Moderate Load</h4> </summary>
+  
+- **ApacheBench used to generate moderate load with 10,000 requests and 5 concurrent users**
+
+![ha-webtrack](https://i.imgur.com/qHvtZVn.png)<br><br>
+
+- **Now lets take a look at the results**
+
+![ha-webtrack](https://i.imgur.com/7qC0Hbm.png)<br><br>
+![ha-webtrack](https://i.imgur.com/WR1PN6r.png)<br><br>
+
+HAProxy and Web Server Metrics Summary under Moderate Load
+
+- HAProxy Disk Usage: 16.0% (unchanged)
+- HAProxy Memory Usage: 12.9% (slight increase from baseline)
+- Server Uptime: All servers (HAProxy, node2, node3) up for 1.49 hours
+- Alerts: No alerts triggered
+- Active Backend Servers: 2 (node2, node3)
+
+CPU Usage:
+HAProxy:
+- Min: 0.441%, Max: 52.9%, Mean: 2.34%
+- Peak CPU usage reached 52.9% during load testing.
+
+Web Servers (node2 and node3):
+- Node2: Min: 1.48%, Max: 59.6%, Mean: 3.69%
+- Node3: Min: 1.69%, Max: 89.7%, Mean: 4.63%
+- CPU usage spiked on both web servers, with node3 seeing a significant increase.
+
+Load Average:
+- HAProxy:
+  - 1-minute: 0.7, 5-minute: 0.18, 15-minute: 0.05
+- Web Servers:
+  - Node2: 1-minute: 0.24
+  - Node3: 1-minute: 2.26 (significant increase due to high traffic)
+
+Network Traffic for HAProxy:
+- Inbound: Min: 191 B, Max: 1.01 MB, Mean: 32.0 kB
+- Outbound: Min: 4.83 kB, Max: 1.06 MB, Mean: 38.2 kB
+- Peak outbound traffic reached 1.06 MB during the test.
+
+Memory Usage for Web Servers:
+- Node2: Min: 49.5%, Max: 50.0%, Mean: 49.6%
+- Node3: Min: 47.7%, Max: 48.4%, Mean: 47.8%
+- Memory usage remained stable on both web servers during the load test.
+
+HTTP Request Rate for HAProxy:
+- Peak request rate: 400 requests per second.
+
+Session Rate for Web Servers:
+- Session rate peaked during load with node2 and node3 equally handling requests which returned to normal after the test
+
+HAProxy Logs:
+- Log entries reflect successful requests and traffic management by HAProxy during the test.
+
+Insights:
+- Increased Traffic: The system handled a moderate load of 10,000 requests with a significant spike in both CPU usage and network traffic on HAProxy and web servers.
+- Stable Memory Usage: Despite the load, memory usage remained stable on both web servers.
+- Peak Performance: Node3 experienced higher CPU load compared to Node2, possibly due to more evenly distributed traffic.
+- Evenly distributed requests: node2 and node3 webservers handled an equal number of requests confirming haproxy load balancing effective
+- No Alerts: Despite the increased load, no alerts were triggered, indicating that the system is well-configured to handle moderate traffic without failures.
+</details>
