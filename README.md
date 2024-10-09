@@ -220,7 +220,7 @@ This section showcases key milestones and achievements during the build and test
   
 - **Confirming `node1` haproxy service is up and running on port 80**
 
-![ha-webtrack](https://i.imgur.com/WAElgSs.png)<br><br>
+![ha-webtrack](https://i.imgur.com/h88Ub3Q.png)<br><br>
 
 - **HAProxy metrics are showing on port 8405 and `node2` and `node3` webservers are up**
 
@@ -235,39 +235,25 @@ This section showcases key milestones and achievements during the build and test
 <details close>
 <summary> <h2>Grafana</h2> </summary>
   
-- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+- **Confirming `control node` grafana service is up and running on port 3000**
 
-![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
-![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+![ha-webtrack](https://i.imgur.com/ECgsxky.png)<br><br>
 
-- **Successfully configured ftp server to host our repository**
+- **Navigating to `control node` ip address on port 3000, we can access grafana using username: *admin* password: *admin***
 
-![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
-
-- **Using ansible debug module to create an encrypted password for user ansible**
-
-![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
-
-
+![ha-webtrack](https://i.imgur.com/Y41iCPa.png)
 </details>
 
 <details close>
-<summary> <h2>Initial Setup</h2> </summary>
+<summary> <h2>Node Exporter</h2> </summary>
   
-- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+- **Confirming node exporter is up and running on port 9100 for `node1` `node2` and `node3`**
 
-![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
-![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+![ha-webtrack](https://i.imgur.com/QhI8dR4.png)<br><br>
 
-- **Successfully configured ftp server to host our repository**
+- **Navigating to `node2` metrics, we can see node exporter successfully pulled data from our system**
 
-![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
-
-- **Using ansible debug module to create an encrypted password for user ansible**
-
-![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
-
-
+![ha-webtrack](https://i.imgur.com/NkuER0p.png)
 </details>
 
 <details close>
