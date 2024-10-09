@@ -290,8 +290,6 @@ This section showcases key milestones and achievements during the build and test
 - **Using ansible debug module to create an encrypted password for user ansible**
 
 ![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
-
-
 </details>
 
 <details close>
