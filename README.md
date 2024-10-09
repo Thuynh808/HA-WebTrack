@@ -108,6 +108,7 @@ To install and set up the project, follow these steps:
    ./initial-setup.sh
    ```
    **This script prepares our ansible environment:**
+   
    - Configure /etc/hosts file for all nodes
    - Setup ftp server on control node as repository
    - Add repo to all nodes
@@ -128,12 +129,14 @@ To install and set up the project, follow these steps:
    ansible-playbook site.yaml -vv
    ```
    **This command starts the installation and configuration of `ALL` components for this project. The -vv option increases verbosity, which can help with troubleshooting if needed.**
+   
    - Apache HTTPD on `webservers` group
    - HAProxy load balancer on `balancers` group
    - Grafana on `control` node
    - Node Exporter on `balancers` and `webservers` group
    - Prometheus on `control` node
    - Promtail on `balancers` and `webservers` group
+   - LVM storage for Loki logs on control node
    - Loki on `control` node
    - Alertmanager on `control` node
 
