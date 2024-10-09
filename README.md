@@ -107,7 +107,16 @@ To install and set up the project, follow these steps:
    ```bash
    ./initial-setup.sh
    ```
-   **This script prepares our ansible environment by setting up necessary ansible user, host configurations, ssh-keys and repositories.** <br><br>
+   **This script prepares our ansible environment:**
+   - Configure /etc/hosts file for all nodes
+   - Setup ftp server on control node as repository
+   - Add repo to all nodes
+   - Ensure python is installed on nodes
+   - Create ansible user with password: *password*
+   - Give ansible user sudo permissions
+   - Copy ansible user public key to all nodes
+   - Use rhel-system-roles-timesync to synchronize all nodes 
+   <br><br>
 
 > **Note:** Before installing components, add your slack webhook url for alertmanager to send alerts
 6. **Edit alertmanager config file:** <br><br>
@@ -118,7 +127,15 @@ To install and set up the project, follow these steps:
    ```bash
    ansible-playbook site.yaml -vv
    ```
-   **This command starts the installation and configuration of all components for this project. The -vv option increases verbosity, which can help with troubleshooting if needed.**
+   **This command starts the installation and configuration of `ALL` components for this project. The -vv option increases verbosity, which can help with troubleshooting if needed.**
+   - Apache HTTPD on `webservers` group
+   - HAProxy load balancer on `balancers` group
+   - Grafana on `control` node
+   - Node Exporter on `balancers` and `webservers` group
+   - Prometheus on `control` node
+   - Promtail on `balancers` and `webservers` group
+   - Loki on `control` node
+   - Alertmanager on `control` node
 
 > **Note:** You can also run individual playbooks for each component if there's any timeout errors.
 - **Run individual playbooks:** <br><br>
