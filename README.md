@@ -129,7 +129,7 @@ To install and set up the project, follow these steps:
    ```bash
    ansible-playbook site.yaml -vv
    ```
-   **This command starts the installation and configuration of `ALL` components for this project. The -vv option increases verbosity, which can help with troubleshooting if needed.**
+   **This command starts the installation and configuration of `ALL` components:**
    
    - Apache HTTPD on `webservers` group
    - HAProxy load balancer on `balancers` group
@@ -150,7 +150,7 @@ To install and set up the project, follow these steps:
 
 ### Verification
 
-- Results from running site.yaml playbook shows no errors. AWESOME!!!
+- Results from running `site.yaml` playbook shows no errors. AWESOME!!!
 
 ![ha-webtrack](https://i.imgur.com/tZGFdqv.png)<br><br>
 
