@@ -187,7 +187,9 @@ For issues related to specific components, refer to the component's documentatio
 This section showcases key milestones and achievements during the build and testing phases of the HA-WEBTRACK project. The following screenshots illustrate the successful deployment, configuration, and operation of the high-availability web server environment.
 
 <details close>
-<summary> <h2>Initial Setup</h2> </summary>
+<summary> <h2>The Build</h2> </summary>
+<details close>
+<summary> <h4>Initial Setup</h4> </summary>
   
 - **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
 
@@ -204,7 +206,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>Webserver</h2> </summary>
+<summary> <h4>Webserver</h4> </summary>
   
 - **Created a landing page with server info for webservers using jinja2 templating**
 
@@ -216,7 +218,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>HAProxy</h2> </summary>
+<summary> <h4>HAProxy</h4> </summary>
   
 - **Confirming `node1` haproxy service is up and running on port 80**
 
@@ -233,7 +235,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>Grafana</h2> </summary>
+<summary> <h4>Grafana</h4> </summary>
   
 - **Confirming `control node` grafana service is up and running on port 3000**
 
@@ -245,7 +247,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>Node Exporter</h2> </summary>
+<summary> <h4>Node Exporter</h4> </summary>
   
 - **Confirming node exporter is up and running on port 9100 for `node1` `node2` and `node3`**
 
@@ -257,7 +259,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>Prometheus</h2> </summary>
+<summary> <h4>Prometheus</h4> </summary>
   
 - **Confirming prometheus is up and running on port 9090 for `control node`**
 
@@ -281,7 +283,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>Promtail/Loki</h2> </summary>
+<summary> <h4>Promtail/Loki</h4> </summary>
   
 - **Confirming promtail is up and running on port 9080 for `node1` `node2` and `node3`**
 
@@ -301,7 +303,7 @@ This section showcases key milestones and achievements during the build and test
 </details>
 
 <details close>
-<summary> <h2>Alertmanager</h2> </summary>
+<summary> <h4>Alertmanager</h4> </summary>
   
 - **Alermanager started and running on port 9093**
 
@@ -318,4 +320,5 @@ This section showcases key milestones and achievements during the build and test
 - **In the rules section of prometheus, we have promql queries used to defined our alert rules**
 
 ![ha-webtrack](https://i.imgur.com/m8M70fH.png)
+</details>
 </details>
