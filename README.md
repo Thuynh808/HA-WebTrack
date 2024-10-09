@@ -458,3 +458,76 @@ Insights:
 - Evenly distributed requests: node2 and node3 webservers handled an equal number of requests confirming haproxy load balancing effective
 - No Alerts: Despite the increased load, no alerts were triggered, indicating that the system is well-configured to handle moderate traffic without failures.
 </details>
+
+<details close>
+<summary> <h4>High Load</h4> </summary>
+  
+- **Now we'll increase the numbe of requests and concurrent connections for this test.**
+
+![ha-webtrack](https://i.imgur.com/iPW2sSK.png)<br><br>
+
+- **After a few minutes, a high request rate alert was triggered and we received a notification in the slack channel**
+
+![ha-webtrack](https://i.imgur.com/QNyWPVo.png)<br><br>
+
+- **Navigating to prometheus alerts page, we can verify the the alert in a firing and active state. The alert rule can be verified and reviewed**
+
+![ha-webtrack](https://i.imgur.com/oc4GcUL.png)<br><br>
+
+- **Below are the screenshots of our grafana dashboard with metrics to observe**
+
+![ha-webtrack](https://i.imgur.com/GtcVwPd.png)<br><br>
+![ha-webtrack](https://i.imgur.com/vczTYu0.png)<br><br>
+
+HAProxy and Web Server Metrics Summary under High Load
+
+- HAProxy Disk Usage: 16.1% (slight increase)
+- HAProxy Memory Usage: 12.6% (minimal change)
+- Server Uptime: All servers (HAProxy, node2, node3) up for 1.61 hours.
+- Alerts: 1 active alert (High Request Rate)
+- Active Backend Servers: 2 (node2, node3)
+
+CPU Usage:
+- HAProxy:
+  - Min: 0.441%, Max: 71.1%, Mean: 13.1%
+  - Peak CPU usage spiked to 71.1% during high load.
+
+- Web Servers (node2 and node3):
+  - Node2: Min: 1.48%, Max: 72.1%, Mean: 13.9%
+  - Node3: Min: 1.69%, Max: 98.3%, Mean: 19.3%
+  - Node3 hit 98.3% CPU usage, indicating that it was handling a significant portion of the load.
+
+Load Average:
+- HAProxy:
+  - 1-minute: 1.86, 5-minute: 0.77, 15-minute: 0.38
+  - Significantly higher compared to the baseline and moderate load tests.
+
+- Web Servers:
+  - Node2: 1-minute: 2.2
+  - Node3: 1-minute: 43.7 (major spike due to heavy traffic)
+
+Network Traffic for HAProxy:
+- Inbound: Min: 251 B, Max: 1.45 MB, Mean: 254 kB
+- Outbound: Min: 4.83 kB, Max: 1.54 MB, Mean: 273 kB
+- Peak outbound traffic during the test was 1.54 MB.
+
+Memory Usage - Web Servers:
+- Node2: Min: 49.5%, Max: 50.2%, Mean: 49.8%
+- Node3: Min: 47.7%, Max: 59.0%, Mean: 51.3%
+- Memory usage increased slightly on both web servers, with Node3 peaking at 59.0%.
+
+HTTP Request Rate - HAProxy:
+- Peak request rate: 400 requests per second.
+
+Session Rate - Web Servers:
+- Session rate is still balanced 50% between the two webserer nodes 
+
+HAProxy Logs:
+- The logs indicate successful handling of the increased load, showing HTTP requests and load balancing between the two web servers.
+
+Insights:
+- Increased Load: The system handled a much heavier load of 70,000 requests with significant spikes in CPU usage and network traffic.
+- High CPU Usage: Both HAProxy and Node3 experienced high CPU usage, indicating that the system was operating near its maximum capacity.
+- Triggered Alerts: The High Request Rate alert was successfully triggered, and notifications were sent to the Slack channel, demonstrating effective monitoring and alerting.
+- Stable Memory: Despite the high load, memory usage remained stable on both web servers.
+</details>
