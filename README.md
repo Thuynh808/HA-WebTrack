@@ -345,7 +345,7 @@ This section showcases key milestones and achievements during the build and test
 ![ha-webtrack](https://i.imgur.com/eDnLHnh.png)<br><br>
 ![ha-webtrack](https://i.imgur.com/32rgVYp.png)<br><br>
 
-HAProxy and Web Server Metrics Summary
+**HAProxy and Web Server Metrics Summary**
 
 - HAProxy Disk Usage: 16.0%
 - HAProxy Memory Usage: 12.5%
@@ -389,7 +389,7 @@ Session Rate for Web Servers:
 HAProxy Logs:
 - No data available
 
-Overall Insights:
+**Overall Insights:**
 - Low Traffic: Minimal network traffic and no HTTP requests, suggesting light usage
 - Stable Performance: CPU and memory usage on both HAProxy and web servers are low and stable
 - No Active Sessions: Both web servers show no active sessions, indicating no load on the system at the moment
@@ -407,7 +407,7 @@ Overall Insights:
 ![ha-webtrack](https://i.imgur.com/7qC0Hbm.png)<br><br>
 ![ha-webtrack](https://i.imgur.com/WR1PN6r.png)<br><br>
 
-HAProxy and Web Server Metrics Summary under Moderate Load
+**HAProxy and Web Server Metrics Summary under Moderate Load**
 
 - HAProxy Disk Usage: 16.0% (unchanged)
 - HAProxy Memory Usage: 12.9% (slight increase from baseline)
@@ -451,7 +451,7 @@ Session Rate for Web Servers:
 HAProxy Logs:
 - Log entries reflect successful requests and traffic management by HAProxy during the test.
 
-Insights:
+**Insights:**
 - Increased Traffic: The system handled a moderate load of 10,000 requests with a significant spike in both CPU usage and network traffic on HAProxy and web servers.
 - Stable Memory Usage: Despite the load, memory usage remained stable on both web servers.
 - Peak Performance: Node3 experienced higher CPU load compared to Node2, possibly due to more evenly distributed traffic.
@@ -479,7 +479,7 @@ Insights:
 ![ha-webtrack](https://i.imgur.com/GtcVwPd.png)<br><br>
 ![ha-webtrack](https://i.imgur.com/vczTYu0.png)<br><br>
 
-HAProxy and Web Server Metrics Summary under High Load
+**HAProxy and Web Server Metrics Summary under High Load**
 
 - HAProxy Disk Usage: 16.1% (slight increase)
 - HAProxy Memory Usage: 12.6% (minimal change)
@@ -525,7 +525,7 @@ Session Rate - Web Servers:
 HAProxy Logs:
 - The logs indicate successful handling of the increased load, showing HTTP requests and load balancing between the two web servers.
 
-Insights:
+**Insights:**
 - Increased Load: The system handled a much heavier load of 70,000 requests with significant spikes in CPU usage and network traffic.
 - High CPU Usage: Both HAProxy and Node3 experienced high CPU usage, indicating that the system was operating near its maximum capacity.
 - Triggered Alerts: The High Request Rate alert was successfully triggered, and notifications were sent to the Slack channel, demonstrating effective monitoring and alerting.
