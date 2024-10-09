@@ -584,4 +584,52 @@ HAProxy Logs:
 - Successful Failover: After powering off node3, HAProxy successfully rerouted the traffic to node2.
 - Spikes in CPU and Load: Both HAProxy and node2 experienced spikes in CPU usage and load during the transition, but performance remained stable.
 - No Downtime: Traffic handling switched seamlessly, indicating a properly configured failover setup.
+
+<details close>
+<summary> <h4>Failover Recovery</h4> </summary>
+  
+- **For this scenario, we'll power-on node3 while running another load test and observe the metrics. We see instance down alert has been resolved but 2 more alerts have triggered, due to high cpu and high request rates**
+
+![ha-webtrack](https://i.imgur.com/5tMXNiq.png)<br><br>
+![ha-webtrack](https://i.imgur.com/lx5Qo9p.png)<br><br>
+
+- **The screenshots below show the recovery metrics of our test**
+
+![ha-webtrack](https://i.imgur.com/Zi5v8vy.png)<br><br>
+![ha-webtrack](https://i.imgur.com/28Htkg7.png)<br><br>
+
+- **After a successful recovery, we can see no alerts are active and in our slack channel, the previous alerts have been resolved**
+
+![ha-webtrack](https://i.imgur.com/xscwGhP.png)<br><br>
+![ha-webtrack](https://i.imgur.com/MlLIT3K.png)<br><br>
+
+**Failover Recovery Test Summary**
+
+Process:
+- Node3 was powered off, and traffic continued to flow through node2 without interruption.
+- After powering node3 back on, it took a short time before it was active again and load started to balance between node2 and node3.
+
+Alerts:
+- High CPU Usage Alert fired when node3 was restored due to high traffic and processing loads before the instance fully recovered.
+- High Request Rate Alert also fired during the recovery process.
+
+Metrics During Recovery:
+- HAProxy CPU Usage reached a peak of 86.2% but averaged 17.2% by the end of the recovery.
+- Web Servers CPU Usage peaked at:
+  - Node2: Max 95.1% during the failover, recovering to a mean of 16.2%.
+  - Node3: Max 98.2% after recovery, with a mean of 42.4%.
+
+Session Rates for Web Servers:
+- Traffic initially routed entirely to node2 but was distributed between node2 and node3 after node3 was back online.
+
+Resolution:
+- Both High CPU Usage and High Request Rate alerts were resolved once node3 fully recovered and the load balanced across both web servers.
+
+System Status Post-Recovery:
+- Alerts: No active alerts.
+- CPU and Memory Usage: Back to normal levels, indicating stable system performance.
+- Load Distribution: Load between node2 and node3 was balanced, with session rates distributed evenly.
+
+The recovery was successful, with the system returning to its expected state, and all metrics stabilizing after the failover and restoration of node3.
+</details>
 </details>
