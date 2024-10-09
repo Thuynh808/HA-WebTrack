@@ -251,81 +251,31 @@ This section showcases key milestones and achievements during the build and test
 
 ![ha-webtrack](https://i.imgur.com/QhI8dR4.png)<br><br>
 
-- **Navigating to `node2` metrics, we can see node exporter successfully pulled data from our system**
+- **Navigating to `node2` metrics, we can see node exporter successfully pulled data from the system**
 
 ![ha-webtrack](https://i.imgur.com/NkuER0p.png)
 </details>
 
 <details close>
-<summary> <h2>Initial Setup</h2> </summary>
+<summary> <h2>Prometheus</h2> </summary>
   
-- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+- **Confirming prometheus is up and running on port 9090 for `control node`**
 
-![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
-![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+![ha-webtrack](https://i.imgur.com/LcFK00Z.png)<br><br>
 
-- **Successfully configured ftp server to host our repository**
+- **Navigating to `control node` on port 9090, we can confirm all our nodes are up**
 
-![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
+![ha-webtrack](https://i.imgur.com/9hM59cV.png)<br><br>
 
-- **Using ansible debug module to create an encrypted password for user ansible**
+- **After adding prometheus data source to grafana, we can import a prebuilt dashboard `159` for quick visualization**
 
-![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
+![ha-webtrack](https://i.imgur.com/VEV6Ksy.png)<br><br>
 
+- **A short script to spin up our nodes' cpu**
 
-</details>
+![ha-webtrack](https://i.imgur.com/Pj8AcoB.png)<br><br>
 
-<details close>
-<summary> <h2>Initial Setup</h2> </summary>
-  
-- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+- **Our dashboard shows our nodes' uptime, as well as available memory. We can also see the spike of load average and cpu usage from the previous command**
 
-![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
-![ha-webtrack](https://i.imgur.com/NZgQve4.png)
-
-- **Successfully configured ftp server to host our repository**
-
-![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
-
-- **Using ansible debug module to create an encrypted password for user ansible**
-
-![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
-</details>
-
-<details close>
-<summary> <h2>Initial Setup</h2> </summary>
-  
-- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
-
-![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
-![ha-webtrack](https://i.imgur.com/NZgQve4.png)
-
-- **Successfully configured ftp server to host our repository**
-
-![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
-
-- **Using ansible debug module to create an encrypted password for user ansible**
-
-![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
-
-
-</details>
-
-<details close>
-<summary> <h2>Initial Setup</h2> </summary>
-  
-- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
-
-![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
-![ha-webtrack](https://i.imgur.com/NZgQve4.png)
-
-- **Successfully configured ftp server to host our repository**
-
-![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
-
-- **Using ansible debug module to create an encrypted password for user ansible**
-
-![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
-
-
+![ha-webtrack](https://i.imgur.com/sGiHyht.png)
 </details>
