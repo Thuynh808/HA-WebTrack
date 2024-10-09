@@ -145,8 +145,14 @@ To install and set up the project, follow these steps:
   ```bash
   ansible-playbook playbooks/<playbook_name>.yaml
   ```
+---
 
 ### Verification
+
+- Results from running site.yaml playbook shows no errors. AWESOME!!!
+
+![ha-webtrack](https://i.imgur.com/tZGFdqv.png)<br><br>
+
 After installation, verify that all components are running correctly by accessing the following URLs and ensuring that each service is operational:
 
 ### Services and URLs
@@ -174,134 +180,168 @@ When encountering issues during the Ansible playbook execution, check the Ansibl
 Ensure all prerequisites are correctly installed and configured before starting the installation.
 For issues related to specific components, refer to the component's documentation or the troubleshooting section of this guide.
 
-
 ---
-<br><br>
 
 ## Project Highlights
 
 This section showcases key milestones and achievements during the build and testing phases of the HA-WEBTRACK project. The following screenshots illustrate the successful deployment, configuration, and operation of the high-availability web server environment.
 
-1. Successful Execution of Ansible Playbooks
-Screenshot 1: Ansible Playbook Execution
+<details close>
+<summary> <h2>Initial Setup</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
 
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)<br><br>
 
-Description: The site.yaml Ansible playbook ran successfully, automating the installation and configuration of all project components across the control node, HAProxy load balancer, and web servers. The output confirms that all tasks were completed without errors.
+- **Successfully configured ftp server to host our repository**
 
-2. HAProxy Load Balancer Operational
-Screenshot 2: HAProxy Statistics Page
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)<br><br>
 
+- **Using ansible debug module to create an encrypted password for user ansible**
 
-Description: The HAProxy statistics page displays the real-time status of the load balancer, showing that both web servers are online and actively handling requests. This confirms that load balancing is functioning as intended.
-
-3. Web Servers Serving Content
-Screenshot 3: Web Server Default Page
-
-
-Description: Accessing the web server's IP address displays the Apache HTTPD default page, indicating that the web server is running and serving content correctly.
-
-4. Monitoring with Grafana Dashboards
-Screenshot 4: Grafana System Metrics Dashboard
-
-
-Description: The Grafana dashboard visualizes real-time system metrics collected by Prometheus, including CPU usage, memory consumption, and network traffic. This dashboard helps in monitoring the performance and health of the servers.
-
-5. Log Aggregation with Loki and Promtail
-Screenshot 5: Loki Logs in Grafana
-
-
-Description: Logs from all nodes are aggregated using Loki and can be queried through Grafana. This setup facilitates efficient troubleshooting and log analysis across the entire environment.
-
-6. Alertmanager Slack Integration
-Screenshot 6: Slack Alert Notification
-
-
-Description: Alertmanager sends real-time alerts to the designated Slack channel. This screenshot shows an alert notification for a simulated high CPU usage scenario, demonstrating the effectiveness of the alerting mechanism.
-
-7. Node Exporter Metrics in Prometheus
-Screenshot 7: Prometheus Targets Up
-
-
-Description: The Prometheus targets page confirms that Node Exporter is running on all nodes and that metrics are being successfully scraped. This ensures comprehensive monitoring of system resources.
-
-8. High Load Testing and Failover
-Screenshot 8: Load Testing Results
-
-
-Description: High load testing was performed using stress testing tools to simulate heavy traffic. The environment remained stable, with HAProxy effectively distributing the load between web servers, validating the failover capabilities.
-
-9. SELinux Security Enforcement
-Screenshot 9: SELinux in Enforcing Mode
-
-
-Description: SELinux is set to enforcing mode on all servers, enhancing the security posture of the environment. This screenshot shows the SELinux status command output confirming the enforcing mode.
-
-10. GitHub Repository
-Screenshot 10: GitHub Project Repository
-
-
-Description: The project code is hosted on GitHub for version control and collaboration. This repository contains all the Ansible playbooks, roles, and configuration files used in the project.
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
+</details>
 
 <details close>
-<summary> <h2>Webserver Setup</h2> </summary>
+<summary> <h2>Webserver</h2> </summary>
+  
+- **Created a landing page with server info for webservers using jinja2 templating**
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+![ha-webtrack](https://i.imgur.com/u7g5tS0.png)<br><br>
+
+- **Confirming `node2` and `node3` httpd service is up and running on port 80**
+
+![ha-webtrack](https://i.imgur.com/akogaV0.png)
+</details>
+
+<details close>
+<summary> <h2>HAProxy</h2> </summary>
+  
+- **Confirming `node1` haproxy service is up and running on port 80**
+
+![ha-webtrack](https://i.imgur.com/WAElgSs.png)<br><br>
+
+- **HAProxy metrics are showing on port 8405 and `node2` and `node3` webservers are up**
+
+![ha-webtrack](https://i.imgur.com/QpOhJyk.png)<br><br>
+
+- **Navigating and refreshing on `node1`, we can see both webservers are coming up confirming http requests are load balanced**
+
+![ha-webtrack](https://i.imgur.com/U8b26NC.png)
+![ha-webtrack](https://i.imgur.com/blAczgE.png)
+</details>
+
+<details close>
+<summary> <h2>Grafana</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+
+- **Successfully configured ftp server to host our repository**
+
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
+
+- **Using ansible debug module to create an encrypted password for user ansible**
+
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
+
 
 </details>
 
 <details close>
-<summary> <h2>Balancer(HAproxy) Setup</h2> </summary>
+<summary> <h2>Initial Setup</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)
 
-</details>
+- **Successfully configured ftp server to host our repository**
 
-<details close>
-<summary> <h2>Grafana Setup</h2> </summary>
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+- **Using ansible debug module to create an encrypted password for user ansible**
 
-</details>
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
 
-<details close>
-<summary> <h2>Prometheus/NodeExporter Setup</h2> </summary>
-
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
 
 </details>
 
 <details close>
-<summary> <h2>Loki/Promtail Setup</h2> </summary>
+<summary> <h2>Initial Setup</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)
 
-</details>
+- **Successfully configured ftp server to host our repository**
 
-<details close>
-<summary> <h2>Alertmanager Setup</h2> </summary>
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+- **Using ansible debug module to create an encrypted password for user ansible**
 
-</details>
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
 
-<details close>
-<summary> <h2>Final System Overview</h2> </summary>
-
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
 
 </details>
 
 <details close>
-<summary> <h2>Testing HighLoad/Failover</h2> </summary>
+<summary> <h2>Initial Setup</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
 
-- **Description**: A brief description of what the setup involves, perhaps the configuration of the control node or setting up HAProxy.
-- **Screenshot**: `![Initial Setup](url-to-image.jpg)` Insert a screenshot showing the setup or a crucial configuration step.
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+
+- **Successfully configured ftp server to host our repository**
+
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
+
+- **Using ansible debug module to create an encrypted password for user ansible**
+
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
+
+
+</details>
+
+<details close>
+<summary> <h2>Initial Setup</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+
+- **Successfully configured ftp server to host our repository**
+
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
+
+- **Using ansible debug module to create an encrypted password for user ansible**
+
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
+
+
+</details>
+
+<details close>
+<summary> <h2>Initial Setup</h2> </summary>
+  
+- **Utilizing jinja2 template and ansbile facts to automate hosts file configurations for smooth and consistent idenitification of our nodes**
+
+![ha-webtrack](https://i.imgur.com/yw6GNTm.png)
+![ha-webtrack](https://i.imgur.com/NZgQve4.png)
+
+- **Successfully configured ftp server to host our repository**
+
+![ha-webtrack](https://i.imgur.com/uNCO4iO.png)
+
+- **Using ansible debug module to create an encrypted password for user ansible**
+
+![ha-webtrack](https://i.imgur.com/CJyS2WD.png)
+
 
 </details>
