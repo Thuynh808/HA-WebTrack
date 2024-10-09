@@ -341,7 +341,7 @@ This section showcases key milestones and achievements during the build and test
 
 ![ha-webtrack](https://i.imgur.com/lONpkrF.png)<br><br>
 
-- **Baseline metrics can now be taken and recorded**
+- **A custom dashboard was created for this project and baseline metrics can now be taken and recorded**
 
 ![ha-webtrack](https://i.imgur.com/eDnLHnh.png)<br><br>
 ![ha-webtrack](https://i.imgur.com/32rgVYp.png)<br><br>
@@ -465,7 +465,7 @@ HAProxy Logs:
 
 ![ha-webtrack](https://i.imgur.com/oc4GcUL.png)<br><br>
 
-- **Below are the screenshots of our grafana dashboard with metrics to observe**
+- **Below are the screenshots of our custom grafana dashboard with metrics to observe**
 
 ![ha-webtrack](https://i.imgur.com/GtcVwPd.png)<br><br>
 ![ha-webtrack](https://i.imgur.com/vczTYu0.png)<br><br>
@@ -516,4 +516,72 @@ HAProxy Logs:
 - High CPU Usage: Both HAProxy and Node3 experienced high CPU usage, indicating that the system was operating near its maximum capacity.
 - Triggered Alerts: The High Request Rate alert was successfully triggered, and notifications were sent to the Slack channel, demonstrating effective monitoring and alerting.
 - Stable Memory: Despite the high load, memory usage remained stable on both web servers.
+</details>
+
+<details close>
+<summary> <h4>Failover</h4> </summary>
+  
+- **For this scenario, we'll poweroff node3 to simulate a downed instance, run a moderate load test and observe the metrics**
+
+![ha-webtrack](https://i.imgur.com/rIMeltf.png)<br><br>
+
+- **After a few minutes, an instance down alert is triggered. We can see the firing state in the alerts page of our prometheus service**
+
+![ha-webtrack](https://i.imgur.com/C512gdn.png)<br><br>
+
+- **Consequently, a notification is received via our slack channel**
+
+![ha-webtrack](https://i.imgur.com/R1BOpe1.png)<br><br>
+
+- **Below are the screenshots of our custom grafana dashboard with metrics to observe**
+
+![ha-webtrack](https://i.imgur.com/6YZ7qPW.png)<br><br>
+![ha-webtrack](https://i.imgur.com/iBmA7dW.png)<br><br>
+![ha-webtrack](https://i.imgur.com/M23WTjH.png)<br><br>
+![ha-webtrack](https://i.imgur.com/oQPCzF0.png)<br><br>
+
+**HAProxy and Web Server Metrics Summary during Failover**
+
+- Active Backend Servers: 1 (node2)
+  
+CPU Usage:
+- HAProxy CPU Usage:
+  - Min: 0.441%, Max: 80.7%, Mean: 13.6%
+  - A significant spike occurred when the failover happened, with CPU usage peaking at 80.7%.
+
+Web Server CPU Usage (node2):
+- Min: 1.55%, Max: 76.4%, Mean: 14.6%
+
+Web Server CPU Usage (node3):
+- Node3 showed no CPU usage after being powered off, as expected.
+
+Load Average:
+- HAProxy Load Average:
+  - 1-minute: 1.86, 5-minute: 0.770, 15-minute: 0.354
+
+Web Server Load Average:
+- Node2: 1-minute load peaked at 2.20.
+- Node3: Load showed 0 after being powered off, indicating no activity.
+
+Memory Usage:
+- Node2: Min: 49.7%, Max: 50.8%, Mean: 50.2%
+- Node3: Min: 48.4%, Max: 60.2%, Mean: 57.2%
+- Node2 memory usage remained stable as it took over the traffic after the failover.
+- Node3 shows a break in the graph confirming the downed instance
+  
+HTTP Request Rate (HAProxy):
+- Peaked at 400 requests/sec during the failover.
+- After node3 was powered off, the request rate dropped temporarily but resumed at node2.
+
+Session Rate (Web Servers):
+- Node2 handled the traffic after failover with 188 sessions after the switch.
+- Node3 showed 0 sessions after being powered off, confirming the failover to node2.
+
+HAProxy Logs:
+- Logs show the switch of traffic from node3 to node2, confirming successful failover behavior, with each HTTP request being rerouted.
+
+**Overall Insights:**
+- Successful Failover: After powering off node3, HAProxy successfully rerouted the traffic to node2.
+- Spikes in CPU and Load: Both HAProxy and node2 experienced spikes in CPU usage and load during the transition, but performance remained stable.
+- No Downtime: Traffic handling switched seamlessly, indicating a properly configured failover setup.
 </details>
