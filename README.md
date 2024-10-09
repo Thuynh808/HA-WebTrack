@@ -222,7 +222,7 @@ This section showcases key milestones and achievements during the build and test
 
 ![ha-webtrack](https://i.imgur.com/h88Ub3Q.png)<br><br>
 
-- **HAProxy metrics are showing on port 8405 and `node2` and `node3` webservers are up**
+- **HAProxy metrics are showing on port 8405; `node2` & `node3` webservers are up**
 
 ![ha-webtrack](https://i.imgur.com/QpOhJyk.png)<br><br>
 
