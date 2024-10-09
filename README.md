@@ -273,7 +273,7 @@ This section showcases key milestones and achievements during the build and test
 
 ![ha-webtrack](https://i.imgur.com/VEV6Ksy.png)<br><br>
 
-- **A short script to spin up our nodes' cpu**
+- **A short and simple command to spin up our nodes' cpu**
 
 ![ha-webtrack](https://i.imgur.com/Pj8AcoB.png)<br><br>
 
