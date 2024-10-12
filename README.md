@@ -583,6 +583,7 @@ HAProxy Logs:
 - Successful Failover: After powering off node3, HAProxy successfully rerouted the traffic to node2.
 - Spikes in CPU and Load: Both HAProxy and node2 experienced spikes in CPU usage and load during the transition, but performance remained stable.
 - No Downtime: Traffic handling switched seamlessly, indicating a properly configured failover setup.
+</details>
 
 <details close>
 <summary> <h4>Failover Recovery</h4> </summary>
