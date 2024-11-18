@@ -21,7 +21,7 @@ The HA-WEBTRACK project applies RHCSA and RHCE principles to create a high-avail
 
 This section outlines the specific versions of the tools and technologies deployed ensuring compatibility and stability across all components:
 
-| Component              | Version                   |
+|                        |                           | 
 |------------------------|---------------------------|
 | VirtualBox: 7.0.14     | Grafana-Enterprise: 11.2  | 
 | RHEL VMs: 9.4          | Loki: 3.2                 |
